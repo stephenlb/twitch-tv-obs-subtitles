@@ -1,0 +1,35 @@
+body {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: #f0f;
+}
+
+div#hero {
+    width: 100%;
+}
+
+div#hero video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    animation: smooth-in 0.4s ease-out 0s 1;
+}
+
+div#hero video.out {
+    animation: smooth-out 0.4s ease-in 0s 1;
+    opacity: 0.0;
+}
+
+@keyframes smooth-in {
+      0% { transform: translateX(-100vw) scale(0.5); opacity: 0.0; }
+    100% { transform: translateX(0vw)    scale(1.0); opacity: 1.0; }
+}
+
+@keyframes smooth-out {
+    0% { transform: translateX(0vw)   scale(1.0); opacity: 1.0; }
+   99% { transform: translateX(100vw) scale(0.5); opacity: 0.0; }
+  100% { transform: translateX(100vw) scale(0.5); opacity: 0.0; }
+}

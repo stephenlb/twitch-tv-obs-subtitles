@@ -3,56 +3,73 @@
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // UI Elements
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-let history = document.querySelector('#history');
-let hero    = document.querySelector('#hero');
-let used    = {};
+let hero = document.querySelector('#hero');
+let used = {};
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Main
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function main() {
     // Listen for Words
-    listen().then( speech => used = {});
+    listen();
 
+    // Continuous Listening
     spoken.listen.on.end(listen);
     spoken.listen.on.error(listen);
 
     // Search Giphy Image
-    spoken.listen.on.partial( speech => {
-        const words = speech.split(' ');
-        words.forEach( async ( word, position ) => {
+    spoken.listen.on.partial(candidate);
+}
 
-            // Prevent Duplicate Capture
-            const wordKey = `${word}-${position}`;
-            if (wordKey in used) return;
-            used[wordKey] = true;
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Word Search Candidate
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+setTimeout( e => candidate('cat'), 10 );
+setTimeout( e => candidate('dog'), 1000 );
+setTimeout( e => candidate('fox'), 2000 );
+setTimeout( e => candidate('dogo'), 3000 );
+function candidate(speech) {
+    console.log('candidate',speech);
+    const words = speech.split(' ');
 
-            // Fetch Giphy Image
-            const image = await giphy(word);
+    words.forEach( async ( word, position ) => {
+        // Prevent Duplicate Capture
+        const wordKey = `${word}-${position}`;
+        if (wordKey in used) return;
+        used[wordKey] = true;
 
-            // Display Giphy Image
-            attachImage(image.small.url);
-            setHero(image.large.url);
-            console.log( speech, image );
+        // Fetch Giphy Image
+        const video = await giphy(word);
 
-        } );
+        // Display Giphy Image
+        setHero(video.mp4);
+        console.log( speech, video );
     } );
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-// Attach Image
-// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-function attachImage(src) {
-    const image = document.createElement('image');
-    image.src = src;
-    history.appendChild(image);
-}
-
-// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-// Set Hero Image
+// Update Hero Image
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function setHero(src) {
-    hero.innerHTML = `<img src='${src}'>`;
+    const video = document.createElement('video');
+
+    video.setAttribute( 'autoplay', 'autoplay' );
+    video.setAttribute( 'loop', 'loop' );
+    video.setAttribute( 'muted', 'muted' );
+    video.setAttribute( 'playsinline', 'playsinline' );
+    video.setAttribute( 'preload', 'auto' );
+
+    video.onloadeddata = e => {
+        console.log('adding video');
+        const oldVideo = hero.querySelector('video');
+        if (oldVideo) {
+            oldVideo.className = 'out';
+            setTimeout( e => hero.removeChild(oldVideo), 400 );
+        }
+        hero.appendChild(video);
+    };
+
+    video.src = src;
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -73,7 +90,11 @@ function giphy(search) {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function listen() {
     await delay(300);
-    spoken.listen().catch( e => true );
+    spoken.listen().then( speech => {
+        console.log('listen',speech);
+        candidate(speech);
+        used = {};
+    } ).catch( e => true );
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
