@@ -1,5 +1,17 @@
 (e=>{'use strict';
 
+setTimeout( e => candidate('cat'), 10 );
+setTimeout( e => candidate('dog'), 1000 );
+setTimeout( e => candidate('fox'), 2000 );
+setTimeout( e => candidate('dogo'), 3100 );
+setTimeout( e => candidate('doggo'), 3200 );
+setTimeout( e => candidate('cat'), 3300 );
+setTimeout( e => candidate('dogo'), 3400 );
+setTimeout( e => candidate('kitty'), 3500 );
+setTimeout( e => candidate('cat'), 3600 );
+setTimeout( e => candidate('kitty'), 3650 );
+setTimeout( e => candidate('cat'), 3680 );
+
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // UI Elements
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -24,12 +36,7 @@ async function main() {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Word Search Candidate
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-setTimeout( e => candidate('cat'), 10 );
-setTimeout( e => candidate('dog'), 1000 );
-setTimeout( e => candidate('fox'), 2000 );
-setTimeout( e => candidate('dogo'), 3000 );
 function candidate(speech) {
-    console.log('candidate',speech);
     const words = speech.split(' ');
 
     words.forEach( async ( word, position ) => {
@@ -43,7 +50,6 @@ function candidate(speech) {
 
         // Display Giphy Image
         setHero(video.mp4);
-        console.log( speech, video );
     } );
 }
 
@@ -60,12 +66,15 @@ function setHero(src) {
     video.setAttribute( 'preload', 'auto' );
 
     video.onloadeddata = e => {
-        console.log('adding video');
         const oldVideo = hero.querySelector('video');
-        if (oldVideo) {
+
+        hero.querySelectorAll('video').forEach( oldVideo => {
             oldVideo.className = 'out';
-            setTimeout( e => hero.removeChild(oldVideo), 400 );
-        }
+            setTimeout( e => hero.childNodes.forEach( child => {
+                if (child == oldVideo) hero.removeChild(oldVideo);
+            } ), 400 );
+        } );
+
         hero.appendChild(video);
     };
 
@@ -91,7 +100,6 @@ function giphy(search) {
 async function listen() {
     await delay(300);
     spoken.listen().then( speech => {
-        console.log('listen',speech);
         candidate(speech);
         used = {};
     } ).catch( e => true );
