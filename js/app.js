@@ -1,21 +1,25 @@
 (e=>{'use strict';
 
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Demo Test Mode
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 setTimeout( e => candidate('cat'), 10 );
 setTimeout( e => candidate('dog'), 1000 );
 setTimeout( e => candidate('fox'), 2000 );
-setTimeout( e => candidate('dogo'), 3100 );
-setTimeout( e => candidate('doggo'), 3200 );
-setTimeout( e => candidate('cat'), 3300 );
-setTimeout( e => candidate('dogo'), 3400 );
-setTimeout( e => candidate('kitty'), 3500 );
-setTimeout( e => candidate('cat'), 3600 );
-setTimeout( e => candidate('kitty'), 3650 );
-setTimeout( e => candidate('cat'), 3680 );
+setTimeout( e => candidate('dogo'), 1100 );
+setTimeout( e => candidate('doggo'), 1200 );
+setTimeout( e => candidate('cat'), 1300 );
+setTimeout( e => candidate('dogo'), 1400 );
+setTimeout( e => candidate('kitty'), 1500 );
+setTimeout( e => candidate('cat'), 1600 );
+setTimeout( e => candidate('kitty'), 1650 );
+setTimeout( e => candidate('cat'), 1680 );
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // UI Elements
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 let hero = document.querySelector('#hero');
+let subs = document.querySelector('#subtitle');
 let used = {};
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -59,11 +63,11 @@ function candidate(speech) {
 function setHero(src) {
     const video = document.createElement('video');
 
-    video.setAttribute( 'autoplay', 'autoplay' );
-    video.setAttribute( 'loop', 'loop' );
-    video.setAttribute( 'muted', 'muted' );
+    video.setAttribute( 'autoplay',    'autoplay'    );
+    video.setAttribute( 'loop',        'loop'        );
+    video.setAttribute( 'muted',       'muted'       );
     video.setAttribute( 'playsinline', 'playsinline' );
-    video.setAttribute( 'preload', 'auto' );
+    video.setAttribute( 'preload',     'auto'        );
 
     video.onloadeddata = e => {
         const oldVideo = hero.querySelector('video');
@@ -112,6 +116,9 @@ function delay(duration) {
     return new Promise( resolve => setTimeout( resolve, duration ) );
 }
 
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Run Main Function
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 main();
 
 })()
