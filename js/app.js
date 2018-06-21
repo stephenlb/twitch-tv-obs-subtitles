@@ -18,9 +18,9 @@ setTimeout( e => candidate('cat'), 1680 );
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // UI Elements
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-let hero = document.querySelector('#hero');
-let subs = document.querySelector('#subtitle');
-let used = {};
+let hero     = document.querySelector('#hero');
+let subtitle = document.querySelector('#subtitle');
+let used     = {};
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Main
@@ -48,6 +48,9 @@ function candidate(speech) {
         const wordKey = `${word}-${position}`;
         if (wordKey in used) return;
         used[wordKey] = true;
+
+        // Subtitle Update
+        subtitle.innerHTML = word;
 
         // Fetch Giphy Image
         const video = await giphy(word);
