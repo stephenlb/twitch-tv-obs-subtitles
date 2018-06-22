@@ -40,8 +40,8 @@ async function main() {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Word Search Candidate
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-function candidate(speech) {
-    const words = speech.split(' ');
+function candidate( speech, sentance=false ) {
+    const words = sentance ? [speech] : speech.split(' ');
 
     words.forEach( async ( word, position ) => {
         // Prevent Duplicate Capture
@@ -107,7 +107,7 @@ function giphy(search) {
 async function listen() {
     await delay(300);
     spoken.listen().then( speech => {
-        candidate(speech);
+        candidate( speech, sentance=true );
         used = {};
     } ).catch( e => true );
 }
