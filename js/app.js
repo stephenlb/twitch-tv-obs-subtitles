@@ -93,7 +93,7 @@ function setHero(src) {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function giphy(search) {
     const subkey = 'sub-c-12780694-740e-11e8-af30-ee393ab85f0e';
-    const url    = `https://ps.pubnub.com/v1/blocks/sub-key/${subkey}/giphy`;
+    const url = `https://pubsub.pubnub.com/v1/blocks/sub-key/${subkey}/giphy`;
 
     return new Promise( resolve => {
         const request = requester({ success : resolve });

@@ -9,8 +9,9 @@ const vault  = require('vault');
 // Main
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 export default ( request, response ) => {
-    const search = request.params.search || 'cat';
-    const rating = request.params.rating || 'pg'; // y, g, pg, pg-13, r
+    const search  = request.params.search  || 'cat';
+    const rating  = request.params.rating  || 'pg'; // y, g, pg, pg-13, r
+    const channel = request.params.channel || false;
 
     // Get Giphy Result (cached)
     return giphySearch( search, rating ).then( giphyResponse => {
@@ -20,6 +21,7 @@ export default ( request, response ) => {
         catch(e) { video = defaultVideo()         }
 
         const reply = videoURL(video);
+        if (channel) pubnub.publish({ channel : channel , message : reply });
         return response.send(reply);
     } );
 };
