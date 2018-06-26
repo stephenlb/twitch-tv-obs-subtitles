@@ -4,8 +4,9 @@
 // Settings
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 const defaultSubkey = 'sub-c-12780694-740e-11e8-af30-ee393ab85f0e';
-const subkey        = uripart('subkey')   || defaultSubkey;
-const channel       = uripart('password') || uuid();
+const subkey        = uripart('subkey')          || defaultSubkey;
+const channel       = uripart('password')        || uuid();
+const enableGiphy   = uripart('giphy') == 'true' || false;
 const rating        = uripart('rating');
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -79,6 +80,8 @@ function candidate( speech, sentance=false ) {
 // Update Hero Image
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function setHero(src) {
+    if (!enableGiphy) return;
+
     const video = document.createElement('video');
 
     video.setAttribute( 'autoplay',    'autoplay'    );
@@ -116,6 +119,8 @@ function giphy(search) {
         if (search)  params.push(`search=${search}`);
         if (channel) params.push(`channel=${channel}`);
         if (rating)  params.push(`rating=${rating}`);
+
+        params.push(`giphy=${enableGiphy}`);
 
         const uri = `${url}?` + params.join('&');
 

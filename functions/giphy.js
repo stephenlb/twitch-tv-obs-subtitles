@@ -9,9 +9,17 @@ const vault  = require('vault');
 // Main
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 export default ( request, response ) => {
-    const search  = request.params.search  || 'cat';
-    const rating  = request.params.rating  || 'pg'; // y, g, pg, pg-13, r
-    const channel = request.params.channel || false;
+    const search  = request.params.search          || 'cat';
+    const rating  = request.params.rating          || 'pg'; // y,g,pg,pg-13,r
+    const channel = request.params.channel         || false;
+    const giphy   = request.params.giphy == 'true' || false;
+
+    // Ignore if Giphy not Enabled
+    if (!giphy) {
+        const reply = { phrase : search };
+        if (channel) pubnub.publish({ channel : channel , message : reply });
+        return response.send(reply);
+    }
 
     // Get Giphy Result (cached)
     return giphySearch( search, rating ).then( giphyResponse => {
