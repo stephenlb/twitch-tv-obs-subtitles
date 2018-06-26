@@ -80,7 +80,7 @@ function candidate( speech, sentance=false ) {
 // Update Hero Image
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function setHero(src) {
-    if (!enableGiphy) return;
+    if (!src) return;
 
     const video = document.createElement('video');
 
