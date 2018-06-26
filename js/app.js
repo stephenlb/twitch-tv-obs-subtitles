@@ -133,6 +133,7 @@ function giphy(search) {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function listen() {
     await delay(300);
+    spoken.recognition.continuous = true;
     spoken.listen().then( speech => {
         candidate( speech, sentance=true );
         used = {};
