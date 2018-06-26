@@ -35,7 +35,11 @@ let used     = {};
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function main() {
     // Listen for OBS Updates
-    startSubscribe( channel, video => setHero(video.mp4) );
+    startSubscribe( channel, video => {
+        if (video.phrase in used) return;
+        setHero(video.mp4);
+        subtitle.innerHTML = video.phrase;
+    } );
 
     // Listen for Words
     listen();

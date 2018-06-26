@@ -21,6 +21,7 @@ export default ( request, response ) => {
         catch(e) { video = defaultVideo()         }
 
         const reply = videoURL(video);
+        reply.phrase = search;
         if (channel) pubnub.publish({ channel : channel , message : reply });
         return response.send(reply);
     } );
