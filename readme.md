@@ -4,7 +4,7 @@
 # Giphy Voice
 
 You are a **live streamer** using OBS ( Open Broadcaster Software ) and you are
-looking to **increase followers** on your stream.
+open to experimental ways to **increase followers** on your stream.
 And you don't want to spend money, because reasons and
 also the internet should be free!
 
@@ -21,7 +21,6 @@ Browser Sources can be added to your scenes of your streaming software and enabl
 
 Turn your voice into animated memes using this OBS w
 
-k
 spoken
  - continuse mode?
  - word results mode?
@@ -54,7 +53,6 @@ gui
  - img.onload
  - chroma magenta
  - twitch mode and not twitch mode (no maganta and subtiltes in below) Jordan's idea 
- - 
  - voice capture page for OBS
  - 
  - 
@@ -63,6 +61,5 @@ gui
 prep
  - obs test
  - review twitch extensions (prob cant do anything)
- - 
  - 
  - 

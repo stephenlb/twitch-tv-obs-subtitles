@@ -1,6 +1,14 @@
 (e=>{'use strict';
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Settings
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+const defaultSubkey = 'sub-c-12780694-740e-11e8-af30-ee393ab85f0e';
+const subkey        = uripart('subkey') || defaultSubkey;
+const channel       = uripart('channel');
+const rating        = uripart('rating');
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Demo Test Mode
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 setTimeout( e => candidate('cat'), 10 );
@@ -92,12 +100,19 @@ function setHero(src) {
 // Fetch Image from Giphy API (using Functions)
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function giphy(search) {
-    const subkey = 'sub-c-12780694-740e-11e8-af30-ee393ab85f0e';
     const url = `https://pubsub.pubnub.com/v1/blocks/sub-key/${subkey}/giphy`;
 
     return new Promise( resolve => {
         const request = requester({ success : resolve });
-        request({ url : `${url}?search=${search}` });
+        const params  = [];
+
+        if (search)  params.push(`search=${search}`);
+        if (channel) params.push(`channel=${channel}`);
+        if (rating)  params.push(`rating=${rating}`);
+
+        const uri = `${url}?` + params.join('&');
+
+        request({ url : uri });
     } );
 }
 
@@ -120,8 +135,27 @@ function delay(duration) {
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Get URI Parameters
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+function uripart(key) {
+    const params = {};
+    const href   = location.href;
+
+    if (href.indexOf('?') < 0) return '';
+
+    href.split('?')[1].split('&').forEach( m => {
+        const kv = m.split('=');
+        params[kv[0]] = kv[1];
+    } );
+
+    if (key in params) return params[key];
+
+    return '';
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Run Main Function
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 main();
 
-})()
+})();
