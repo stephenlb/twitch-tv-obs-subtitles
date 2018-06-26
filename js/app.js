@@ -4,8 +4,8 @@
 // Settings
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 const defaultSubkey = 'sub-c-12780694-740e-11e8-af30-ee393ab85f0e';
-const subkey        = uripart('subkey') || defaultSubkey;
-const channel       = uripart('channel');
+const subkey        = uripart('subkey')  || defaultSubkey;
+const channel       = uripart('channel') || uuid();
 const rating        = uripart('rating');
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -167,6 +167,18 @@ function startSubscribe( channelName, callback ) {
             payload.m.forEach( message => callback(message.d) );
         }
     });
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// UUID
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+function uuid() {
+    let u = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,
+    function(c) {
+        let r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+        return v.toString(16);
+    });
+    return u;
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
