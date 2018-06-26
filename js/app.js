@@ -80,7 +80,7 @@ function candidate( speech, sentance=false ) {
 // Update Hero Image
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function setHero(src) {
-    if (!src) return;
+    if (!src) return (hero.innerHTML = '');
 
     const video = document.createElement('video');
 
