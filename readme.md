@@ -1,5 +1,5 @@
 ![Giphy Voice](https://i.imgur.com/pYRYKmT.png)
-![OBS Source Overlay](https://i.imgur.com/pYRYKmT.png)
+![OBS Source Overlay](https://i.imgur.com/t8Plu5G.png)
 
 # Giphy Voice
 
