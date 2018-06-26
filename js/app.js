@@ -34,6 +34,9 @@ let used     = {};
 // Main
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function main() {
+    // Listen for OBS Updates
+    startSubscribe( channel, video => setHero(video.mp4) );
+
     // Listen for Words
     listen();
 
@@ -151,6 +154,19 @@ function uripart(key) {
     if (key in params) return params[key];
 
     return '';
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Subscribe for OBS Updates
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+function startSubscribe( channelName, callback ) {
+    subscribe({
+        subkey  : subkey
+    ,   channel : channelName
+    ,   message : payload => {
+            payload.m.forEach( message => callback(message.d) );
+        }
+    });
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
