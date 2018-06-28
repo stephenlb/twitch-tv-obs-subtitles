@@ -132,9 +132,8 @@ function giphy(search) {
 // Listen for Voice Commands
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function listen() {
-    await delay(300);
-    spoken.recognition.continuous = true;
-    spoken.listen().then( speech => {
+    await delay(100);
+    spoken.listen({continuous:false}).then( speech => {
         candidate( speech, sentance=true );
         used = {};
     } ).catch( e => true );
