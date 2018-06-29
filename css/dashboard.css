@@ -90,4 +90,5 @@ Installation Guide
 div#header div.installation-guide {
     flex: 1;
     margin: 0 20px;
+    font-size: 14px;
 }
