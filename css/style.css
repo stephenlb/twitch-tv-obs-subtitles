@@ -17,7 +17,8 @@ div#subtitle {
     top: 0px;
     left: 0px;
     background: transparent;
-    font-family: "San Francisco", "Helvetica Neue", "Helvetica",
+    font-family: "San Francisco",
+        "Helvetica Neue", "Helvetica",
         Arial, Sans-Serif;
     font-size: calc( 5vh + 5vw );
     font-weight: 200;
@@ -52,6 +53,20 @@ div#hero video {
 div#hero video.out {
     animation: smooth-out 0.3s ease-out 0s 1;
     opacity: 0.0;
+}
+
+div#watermark {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 275px;
+    min-width: 275px;
+    height: 63px;
+    min-height: 63px;
+    background-image: url(../media/pubnub-logo.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
 }
 
 @keyframes smooth-in {

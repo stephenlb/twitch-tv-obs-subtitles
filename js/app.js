@@ -5,7 +5,7 @@
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 const defaultSubkey = 'sub-c-12780694-740e-11e8-af30-ee393ab85f0e';
 const subkey        = uripart('subkey')          || defaultSubkey;
-const channel       = uripart('password')        || uuid();
+const channel       = uripart('channel')         || uuid();
 const enableGiphy   = uripart('giphy') == 'true' || false;
 const rating        = uripart('rating');
 
