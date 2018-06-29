@@ -3,7 +3,8 @@ Common Styles
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 div.content {
     margin: 0 auto;
-    width: 80vw;
+    width: 80%;
+    z-index: 1;
 }
 
 body {
@@ -18,10 +19,15 @@ body {
 Header Text and Graphics
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 div#header {
+    overflow: hidden;
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 500px;
     display: flex;
+    background: linear-gradient(to top,    rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%, rgba(255,255,255,0) 100%),
+                linear-gradient(265deg,    rgba(230,98,177,1)  0%, rgba(230,98,177,1)  10%, rgba(230,98,177,0)  100%),
+                linear-gradient(85deg,     rgba(30,190,197,1)  0%, rgba(30,190,197,1)  50%, rgba(30,190,197,0)  100%),
+                linear-gradient(to bottom, rgba(70,215,174,1)  0%, rgba(70,215,174,0) 100%);
 }
 div#header div.title {
     width: 100%;
@@ -32,37 +38,90 @@ div#header div.title {
     text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
     margin-top: 100px;
 }
+div#header div.title e {
+    display: inline-block;
+    animation:
+        fader calc( var(--child) * 1.5s + 2.0s)
+        ease-in-out calc(var(--child) * -8s) infinite alternate,
+        colorer calc( var(--child) * 0.5s + 1.0s)
+        ease-in-out calc(var(--child) * -0.8s + 1s) infinite alternate;
+}
+div.title twitch {
+    display: inline-block;
+    background-image: url(../media/twitch-tv-icon-white.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 53px;
+    height: 55px;
+}
 div#header div.subtitle {
     color: #fff;
     font-size: 18px;
     font-weight: 300;
     margin-top: 20px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+@keyframes fader {
+    0%   { opacity: 1.0 }
+    88%  { opacity: 0.9 }
+    95%  { opacity: 0.7 }
+    100% { opacity: 0.9 }
+}
+
+@keyframes colorer {
+      0% { text-shadow: 0px 0px 40px rgba(255,255,255,1.0) }
+     30% { text-shadow: 0px 0px  6px rgba(255, 55,255,0.2) }
+    100% { }
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-Header Background
+Shooting Stars
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
-div#header div.background div {
+div#header div.shooting-stars {
+    position: relative;
+    z-index: 0;
+}
+div#header div.shooting-stars e {
     position: absolute;
-    top: 0px;
+    top: calc( var(--child) * 10px + 10px);
+    left: calc( var(--child) * 2.8vw - 0.5vw);
+    display: block;
+    width: 3px;
+    height: 800px;
+    background: linear-gradient( to bottom,
+        rgba(255,255,255,1)   0%,
+        rgba(255,255,255,1)   0.9%,
+        rgba( 70,215,174,1)   1%,
+        rgba( 70,215,174,0) 100%
+    );
+    animation:
+        shooting-star-glimmer calc( var(--child) * 0.1s + 0.5s)
+        ease-in-out calc(var(--child) * -8s) infinite alternate,
+        shooting-star calc( var(--child) * 0.2s + 2.0s)
+        linear calc(var(--child) * -8s) infinite;
+}
+
+
+@keyframes shooting-star {
+      0% { transform: translateY( 460px)  }
+    100% { transform: translateY(-1000px)     }
+}
+@keyframes shooting-star-glimmer {
+      0% { opacity: 0.0 }
+    100% { opacity: 1.0 }
+}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Footer
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+div#footer {
+    position: relative;
     width: 100%;
-    height: 500px;
-    background-size: 100%;
-}
-div#header div.background {
-    z-index: -1;
-}
-div#header div.background div:nth-child(1) {
-    background: linear-gradient(to bottom, rgba(70,215,174,1) 0%, rgba(70,215,174,0) 100%);
-}
-div#header div.background div:nth-child(2) {
-    background: linear-gradient(85deg, rgba(30,190,197,1) 0%, rgba(30,190,197,1) 50%, rgba(30,190,197,0) 100%);
-}
-div#header div.background div:nth-child(3) {
-    background: linear-gradient(265deg, rgba(98,230,177,1) 0%, rgba(98,230,177,1) 10%, rgba(98,230,177,0) 100%);
-}
-div#header div.background div:nth-child(4) {
-    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%, rgba(255,255,255,0) 100%);
+    height: 300px;
+    background: linear-gradient(265deg,    rgba(98,230,177,1)  0%, rgba(98,230,177,1)  10%, rgba(98,230,177,0)  100%),
+                linear-gradient(85deg,     rgba(30,190,197,1)  0%, rgba(30,190,197,1)  50%, rgba(30,190,197,0)  100%),
+                linear-gradient(to bottom, rgba(70,215,174,1)  0%, rgba(70,215,174,0) 100%);
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -81,7 +140,7 @@ div#header div.live-example {
     flex: 1;
     width: 320px;
     height: 240px;
-    background: red;
+    background: #fff;
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -92,3 +151,47 @@ div#header div.installation-guide {
     margin: 0 20px;
     font-size: 14px;
 }
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/*    Enumerate children for css variables     */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+:nth-child(1)   { --child: 1   }
+:nth-child(2)   { --child: 2   }
+:nth-child(3)   { --child: 3   }
+:nth-child(4)   { --child: 4   }
+:nth-child(5)   { --child: 5   }
+:nth-child(6)   { --child: 6   }
+:nth-child(7)   { --child: 7   }
+:nth-child(8)   { --child: 8   }
+:nth-child(9)   { --child: 9   }
+:nth-child(10)  { --child: 10  }
+:nth-child(11)  { --child: 11  }
+:nth-child(12)  { --child: 12  }
+:nth-child(13)  { --child: 13  }
+:nth-child(14)  { --child: 14  }
+:nth-child(15)  { --child: 15  }
+:nth-child(16)  { --child: 16  }
+:nth-child(17)  { --child: 17  }
+:nth-child(18)  { --child: 18  }
+:nth-child(19)  { --child: 19  }
+:nth-child(20)  { --child: 20  }
+:nth-child(21)  { --child: 21  }
+:nth-child(22)  { --child: 22  }
+:nth-child(23)  { --child: 23  }
+:nth-child(24)  { --child: 24  }
+:nth-child(25)  { --child: 25  }
+:nth-child(26)  { --child: 26  }
+:nth-child(27)  { --child: 27  }
+:nth-child(28)  { --child: 28  }
+:nth-child(29)  { --child: 29  }
+:nth-child(30)  { --child: 30  }
+:nth-child(31)  { --child: 31  }
+:nth-child(32)  { --child: 32  }
+:nth-child(33)  { --child: 33  }
+:nth-child(34)  { --child: 34  }
+:nth-child(35)  { --child: 35  }
+:nth-child(36)  { --child: 36  }
+:nth-child(37)  { --child: 37  }
+:nth-child(38)  { --child: 38  }
+:nth-child(39)  { --child: 39  }
+:nth-child(40)  { --child: 40  }
