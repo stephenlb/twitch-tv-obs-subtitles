@@ -113,19 +113,21 @@ div#header div.shooting-stars e {
         rgba(255,255,255,1)   0%,
         rgba(255,255,255,1)   0.9%,
         rgba( 70,215,174,1)   1%,
-        rgba( 70,215,174,0) 100%
+        rgba( 70,215,174,1)  60%,
+        rgba(230, 98,177,1)  70%,
+        rgba(230, 98,177,0) 100%
     );
     animation:
         shooting-star-glimmer calc( var(--child) * 0.1s + 0.5s)
-        ease-in-out calc(var(--child) * -8s) infinite alternate,
+        ease-in-out calc(var(--child) * -80s) infinite alternate,
         shooting-star calc( var(--child) * 0.2s + 2.0s)
-        linear calc(var(--child) * -8s) infinite;
+        linear calc(var(--child) * -80s) infinite;
 }
 
 
 @keyframes shooting-star {
       0% { transform: translateY( 460px)  }
-    100% { transform: translateY(-1000px)     }
+    100% { transform: translateY(-1100px)     }
 }
 @keyframes shooting-star-glimmer {
       0% { opacity: 0.0 }
@@ -215,3 +217,5 @@ div#header div.installation-guide {
 :nth-child(38)  { --child: 38  }
 :nth-child(39)  { --child: 39  }
 :nth-child(40)  { --child: 40  }
+:nth-child(41)  { --child: 41  }
+:nth-child(42)  { --child: 42  }
