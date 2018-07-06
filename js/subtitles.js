@@ -5,7 +5,7 @@
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 const defaultPubkey   = 'pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe';
 const defaultSubkey   = 'sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14';
-const defaultChannel  = 'subtitles';
+const defaultChannel  = uuid();
 const defaultMaxWords = 25;
 const pubkey          = uripart('pubkey')          || defaultPubkey;
 const subkey          = uripart('subkey')          || defaultSubkey;
@@ -13,19 +13,9 @@ const channel         = uripart('channel')         || defaultChannel;
 const maxWords        = uripart('maxwords')        || defaultMaxWords;
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-// Demo Test Mode
+// Introduction Text
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-setTimeout( e => candidate('cat'), 10 );
-setTimeout( e => candidate('dog'), 1000 );
-setTimeout( e => candidate('fox'), 2000 );
-setTimeout( e => candidate('dogo'), 1100 );
-setTimeout( e => candidate('doggo'), 1200 );
-setTimeout( e => candidate('cat'), 1300 );
-setTimeout( e => candidate('dogo'), 1400 );
-setTimeout( e => candidate('kitty'), 1500 );
-setTimeout( e => candidate('cat'), 1600 );
-setTimeout( e => candidate('kitty'), 1650 );
-setTimeout( e => candidate('cat'), 1680 );
+setTimeout( e => candidate('Start talking.'), 10 );
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // UI Elements
