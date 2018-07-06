@@ -3,12 +3,14 @@
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Settings
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-const defaultSubkey  = 'sub-c-12780694-740e-11e8-af30-ee393ab85f0e';
-const defaultChannel = 'subtitles';
-const subkey         = uripart('subkey')          || defaultSubkey;
-const channel        = uripart('channel')         || defaultChannel;
-const enableGiphy    = uripart('giphy') == 'true' || false;
-const rating         = uripart('rating');
+const defaultPubkey   = 'pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe';
+const defaultSubkey   = 'sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14';
+const defaultChannel  = 'subtitles';
+const defaultMaxWords = 25;
+const pubkey          = uripart('pubkey')          || defaultPubkey;
+const subkey          = uripart('subkey')          || defaultSubkey;
+const channel         = uripart('channel')         || defaultChannel;
+const maxWords        = uripart('maxwords')        || defaultMaxWords;
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Demo Test Mode
@@ -28,20 +30,22 @@ setTimeout( e => candidate('cat'), 1680 );
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // UI Elements
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-let hero     = document.querySelector('#hero');
-let subtitle = document.querySelector('#subtitle');
-let used     = {};
+let subtitles = document.querySelector('#subtitle');
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Main
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function main() {
     // Listen for OBS Updates
-    startSubscribe( channel, video => {
-        if (video.phrase in used) return;
-        setHero(video.mp4);
-        subtitle.innerHTML = video.phrase;
+    startSubscribe( channel, speech => {
+        updateSubtitles(speech.phrase);
     } );
+
+    // Trim Subtitles prevents Screen Overflow
+    setInterval( e => {
+        let words = subtitles.innerHTML.split(' ');
+        updateSubtitles(words.slice(-maxWords).join(' '));
+    }, 1000 );
 
     // Listen for Words
     listen();
@@ -57,76 +61,16 @@ async function main() {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Word Search Candidate
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-function candidate( speech, sentance=false ) {
-    const words = sentance ? [speech] : speech.split(' ');
-
-    words.forEach( async ( word, position ) => {
-        // Prevent Duplicate Capture
-        const wordKey = `${word}-${position}`;
-        if (wordKey in used) return;
-        used[wordKey] = true;
-
-        // Subtitle Update
-        subtitle.innerHTML = word;
-
-        // Fetch Giphy Image
-        const video = await giphy(word);
-
-        // Display Giphy Image
-        setHero(video.mp4);
-    } );
+function candidate(speech) {
+    updateSubtitles(speech);
+    publish( channel, { phrase : speech } );
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-// Update Hero Image
+// Update Subtitles
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-function setHero(src) {
-    if (!src) return (hero.innerHTML = '');
-
-    const video = document.createElement('video');
-
-    video.setAttribute( 'autoplay',    'autoplay'    );
-    video.setAttribute( 'loop',        'loop'        );
-    video.setAttribute( 'muted',       'muted'       );
-    video.setAttribute( 'playsinline', 'playsinline' );
-    video.setAttribute( 'preload',     'auto'        );
-
-    video.onloadeddata = e => {
-        const oldVideo = hero.querySelector('video');
-
-        hero.querySelectorAll('video').forEach( oldVideo => {
-            oldVideo.className = 'out';
-            setTimeout( e => hero.childNodes.forEach( child => {
-                if (child == oldVideo) hero.removeChild(oldVideo);
-            } ), 400 );
-        } );
-
-        hero.appendChild(video);
-    };
-
-    video.src = src;
-}
-
-// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-// Fetch Image from Giphy API (using Functions)
-// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-function giphy(search) {
-    const url = `https://pubsub.pubnub.com/v1/blocks/sub-key/${subkey}/giphy`;
-
-    return new Promise( resolve => {
-        const request = requester({ success : resolve });
-        const params  = [];
-
-        if (search)  params.push(`search=${search}`);
-        if (channel) params.push(`channel=${channel}`);
-        if (rating)  params.push(`rating=${rating}`);
-
-        params.push(`giphy=${enableGiphy}`);
-
-        const uri = `${url}?` + params.join('&');
-
-        request({ url : uri });
-    } );
+function updateSubtitles(speech) {
+    subtitles.innerHTML = speech;
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -134,8 +78,8 @@ function giphy(search) {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function listen() {
     await delay(100);
-    spoken.listen({continuous:false}).then( speech => {
-        candidate( speech, sentance=true );
+    spoken.listen({continuous:true}).then( speech => {
+        candidate(speech);
         used = {};
     } ).catch( e => true );
 }
@@ -177,6 +121,21 @@ function startSubscribe( channelName, callback ) {
             payload.m.forEach( message => callback(message.d) );
         }
     });
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Publish Captured Subtitles
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+const publisher = requester({ timeout : 10000 });
+const origin    = 'ps'+(Math.random()+'').split('.')[1]+'.pubnub.com';
+function publish( channelName, data={} ) {
+    return publisher({ url : [
+        'https://',  origin,
+        '/publish/', pubkey,
+        '/',         subkey,
+        '/0/',       channelName,
+        '/0/',       encodeURIComponent(JSON.stringify(data))
+    ].join('') });
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

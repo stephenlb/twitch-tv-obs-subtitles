@@ -3,9 +3,9 @@
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Request URL
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-var requester = window.requester = function(setup={}) {
+const requester = window.requester = function(setup={}) {
 
-    var xhr      = new XMLHttpRequest()
+    let xhr      = new XMLHttpRequest()
     ,   finished = false
     ,   timeout  = setup.timeout || 15000
     ,   success  = setup.success || function(){}
@@ -47,7 +47,7 @@ var requester = window.requester = function(setup={}) {
 
     // Return Requester Object
     return function(setup) {
-        var url     = setup.url     || 'https://ps.pubnub.com/time/0'
+        let url     = setup.url     || 'https://ps.pubnub.com/time/0'
         ,   headers = setup.headers || {}
         ,   method  = setup.method  || 'GET'
         ,   payload = setup.payload || null
