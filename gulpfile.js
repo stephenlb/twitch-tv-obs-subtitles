@@ -20,6 +20,12 @@ markers.addMarker({
     replace : e => ''
 });
 
+markers.addMarker({
+    tag     : 'css-removal',
+    re      : /<title>[^<]+<\/title>/,
+    replace : e => ''
+});
+
 gulp.task( 'html', e => {
     return merge(
 
