@@ -1,0 +1,29 @@
+{
+  "name": "twitch-tv-obs-subtitles",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Stephen Blum",
+  "description": "Add Subtitles to your Twitch stream! Easy OBS integration.",
+  "homepage": "http://stephenlb.github.io/twitch-tv-obs-subtitles#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stephenlb/twitch-tv-obs-subtitles.git"
+  },
+  "keywords": [
+    "livestream",
+    "subtitles",
+    "obs",
+    "twitch"
+  ],
+  "bugs": { "url": "https://github.com/stephenlb/twitch-tv-obs-subtitles/issues" },
+  "dependencies": {
+    "gulp": "4.0.0",
+    "gulp-htmlmin": "4.0.0",
+    "gulp-clean-css": "3.9.4",
+    "gulp-uglify-es": "1.0.4",
+    "gulp-merge": "0.1.1",
+    "gulp-concat": "2.6.1",
+    "gulp-wrapper": "1.0.0",
+    "gulp-markers": "0.2.9"
+  }
+}
