@@ -24,3 +24,13 @@ communicate with each other.
 ![Giphy Voice](https://i.imgur.com/pYRYKmT.png)
 ![OBS Source Overlay](https://i.imgur.com/t8Plu5G.png)
 
+# Build Website Page
+
+Project Landing Page is easy to build just run this:
+
+```shell
+npm install
+gulp
+```
+
+Then you can upload `build/dashboard.html` to the website.
