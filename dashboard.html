@@ -33,27 +33,33 @@
                 allow="microphone"
             ></iframe></div>
             <div class="installation-guide">
-                <div class="install-step">
+                <div id="step-1" class="install-step">
                     <step>1</step>
-                    Enable your microphone.
+                    <detail>Enable your microphone.</detail>
                 </div>
-                <div class="install-step">
+                <div id="step-2" class="install-step">
                     <step>2</step>
-                    <a target="register"
-                        href="https://admin.pubnub.com/#/register">Complete this form</a>
-                    and <strong>Come back to this page!</strong>
+                    <detail>
+                        <a target="register"
+                            href="https://admin.pubnub.com/#/register">Complete this form</a>
+                        and <strong>Come back to this page!</strong>
+                    </detail>
                 </div>
-                <div class="install-step">
+                <div id="step-3" class="install-step">
                     <step>3</step>
-                    <input onclick="this.focus();this.select()"
-                        readonly="readonly" value="https://...">
-                    Copy into OBS Browser Source.
+                    <detail>
+                        <input onclick="this.focus();this.select()"
+                            readonly="readonly" value="https://...">
+                        Copy URL into OBS Browser Source.
+                    </detail>
                 </div>
-                <div class="install-step">
+                <div id="step-4" class="install-step">
                     <step>4</step>
-                    <a target="fork"
-                        href="https://github.com/stephenlb/twitch-tv-obs-subtitles/fork">
-                    Customize the look</a>: remove watermarks and update colors.
+                    <detail>
+                        <a target="fork"
+                            href="https://github.com/stephenlb/twitch-tv-obs-subtitles/fork">
+                        Customize the look</a>: remove watermarks and update colors.
+                    </detail>
                 </div>
             </div>
         </div>

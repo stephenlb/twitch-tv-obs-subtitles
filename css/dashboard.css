@@ -145,8 +145,21 @@ div#header div.instructions {
     margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
-    color: #222;
+    color: #333;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+div#header div.installation-guide {
+    flex: 1;
+    margin: 0 20px;
+    font-size: 16px;
+}
+
+div#header div.instructions div.install-step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 div#header div.instructions step {
@@ -157,10 +170,15 @@ div#header div.instructions step {
     width: 50px;
     height: 50px;
     line-height: 50px;
-    font-size: 20px;
+    font-size: 22px;
     color: #23232e;
     text-align: center;
-    margin: 10px 10px 10px 0px;
+    margin: 15px 20px 15px 0px;
+}
+
+div#header div.instructions detail {
+    flex: 1;
+    display: inline-block;
 }
 
 div#header div.instructions input {
@@ -182,15 +200,6 @@ div#header div.live-example iframe {
     border: 0;
     width: 100%;
     height: 100%;
-}
-
-/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-Installation Guide
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
-div#header div.installation-guide {
-    flex: 1;
-    margin: 0 20px;
-    font-size: 16px;
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
