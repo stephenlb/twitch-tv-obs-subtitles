@@ -58,15 +58,15 @@ div#hero video.out {
 div#watermark {
     position: absolute;
     bottom: 20px;
-    right: 20px;
-    width: 275px;
-    min-width: 275px;
-    height: 63px;
-    min-height: 63px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 20vw;
+    height: 20vh;
     background-image: url(../media/pubnub-logo.png);
     background-size: 100%;
     background-repeat: no-repeat;
-    opacity: 0.5;
+    opacity: 0.2;
 }
 
 @keyframes smooth-in {

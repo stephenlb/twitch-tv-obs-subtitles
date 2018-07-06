@@ -21,8 +21,8 @@ Header Text and Graphics
 div#header {
     overflow: hidden;
     position: relative;
+    min-height: 800px;
     width: 100%;
-    height: 550px;
     display: flex;
     background: linear-gradient(to top,    rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%, rgba(255,255,255,0) 100%),
                 linear-gradient(265deg,    rgba(230,98,177,1)  0%, rgba(230,98,177,1)  10%, rgba(230,98,177,0)  100%),
@@ -87,14 +87,6 @@ div#header div.shooting-stars div.overlay {
     left: 0px;
     width: 100vw;
     height: 100%;
-    /*
-    background: transparent;
-    background: linear-gradient( to top,
-        rgba(70,215,174,1)   0%,
-        rgba(70,215,174,0)  30%,
-        rgba(70,215,174,0) 100%
-    );
-    */
     background: linear-gradient( to top,
         rgba(255,255,255,1)   0%,
         rgba(255,255,255,0)  10%,
@@ -109,12 +101,13 @@ div#header div.shooting-stars e {
     width: 3px;
     height: 800px;
     background: linear-gradient( to bottom,
-        rgba(255,255,255,1)   0%,
-        rgba(255,255,255,1)   0.9%,
-        rgba( 70,215,174,1)   1%,
-        rgba( 70,215,174,1)  60%,
-        rgba(230, 98,177,1)  70%,
-        rgba(230, 98,177,0) 100%
+        rgba(255,255,255,0.9)   0%,
+        rgba(255,255,255,0.9)   0.6%,
+        rgba( 70,215,174,0.7)   0.7%,
+        rgba( 70,215,174,0.7)  60%,
+        rgba(230, 98,177,0.6)  65%,
+        rgba(230, 98,177,0.2)  70%,
+        rgba(230, 98,177,0.0) 100%
     );
     animation:
         shooting-star-glimmer calc( var(--child) * 0.1s + 0.5s)
@@ -125,8 +118,8 @@ div#header div.shooting-stars e {
 
 
 @keyframes shooting-star {
-      0% { transform: translateY( 460px)  }
-    100% { transform: translateY(-1100px)     }
+      0% { transform: translateY( 100%)  }
+    100% { transform: translateY(-1100px) }
 }
 @keyframes shooting-star-glimmer {
       0% { opacity: 0.0 }
@@ -152,6 +145,28 @@ div#header div.instructions {
     margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
+    color: #222;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+div#header div.instructions step {
+    display: inline-block;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.7);
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color: #23232e;
+    text-align: center;
+    margin: 10px 10px 10px 0px;
+}
+
+div#header div.instructions input {
+    font-size: 10px;
+    padding: 10px;
+    width: 100px;
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -161,7 +176,12 @@ div#header div.live-example {
     flex: 1;
     width: 320px;
     height: 240px;
-    background: #fff;
+}
+div#header div.live-example iframe {
+    background: transparent;
+    border: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

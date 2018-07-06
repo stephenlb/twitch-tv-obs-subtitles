@@ -27,7 +27,11 @@
         </div>
 
         <div class="instructions">
-            <div class="live-example">example</div>
+            <div class="live-example"><iframe
+                id="subtitle-display"
+                src="/subtitles.html"
+                allow="microphone"
+            ></iframe></div>
             <div class="installation-guide">
                 <div class="install-step">
                     <step>1</step>
@@ -35,14 +39,21 @@
                 </div>
                 <div class="install-step">
                     <step>2</step>
-                    <a href="https://admin.pubnub.com/#/register">Fill out
-                    this form</a>
-                    and <strong>return to this page</strong>.
+                    <a target="register"
+                        href="https://admin.pubnub.com/#/register">Complete this form</a>
+                    and <strong>Come back to this page!</strong>
                 </div>
                 <div class="install-step">
                     <step>3</step>
-                    Copy the following URL into an OBS Browser Source Layer.
-                    <input readonly value="https://...">
+                    <input onclick="this.focus();this.select()"
+                        readonly="readonly" value="https://...">
+                    Copy into OBS Browser Source.
+                </div>
+                <div class="install-step">
+                    <step>4</step>
+                    <a target="fork"
+                        href="https://github.com/stephenlb/twitch-tv-obs-subtitles/fork">
+                    Customize the look</a> like removing watermarks and update colors.
                 </div>
             </div>
         </div>
@@ -52,7 +63,7 @@
 <!-- Main Content Area -->
 <div id="main">
     <div class="content">
-        ...
+        Open Source and free.
     </div>
 </div>
 
