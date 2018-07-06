@@ -41,12 +41,6 @@ async function main() {
         updateSubtitles(speech.phrase);
     } );
 
-    // Trim Subtitles prevents Screen Overflow
-    setInterval( e => {
-        let words = subtitles.innerHTML.split(' ');
-        updateSubtitles(words.slice(-maxWords).join(' '));
-    }, 1000 );
-
     // Listen for Words
     listen();
 
@@ -62,23 +56,24 @@ async function main() {
 // Word Search Candidate
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function candidate(speech) {
-    updateSubtitles(speech);
-    publish( channel, { phrase : speech } );
+    publish( channel, { phrase : updateSubtitles(speech) } );
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Update Subtitles
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function updateSubtitles(speech) {
-    subtitles.innerHTML = speech;
+    let words = speech.split(' ');
+    subtitles.innerHTML = words.slice(-maxWords).join(' ');
+    return subtitles.innerHTML;
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Listen for Voice Commands
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function listen() {
-    await delay(100);
-    spoken.listen({continuous:true}).then( speech => {
+    await delay(300);
+    spoken.listen({continuous:false}).then( speech => {
         candidate(speech);
         used = {};
     } ).catch( e => true );
@@ -126,10 +121,9 @@ function startSubscribe( channelName, callback ) {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Publish Captured Subtitles
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-const publisher = requester({ timeout : 10000 });
-const origin    = 'ps'+(Math.random()+'').split('.')[1]+'.pubnub.com';
+const origin = 'ps'+(Math.random()+'').split('.')[1]+'.pubnub.com';
 function publish( channelName, data={} ) {
-    return publisher({ url : [
+    return requester({ timeout : 10000 })({ url : [
         'https://',  origin,
         '/publish/', pubkey,
         '/',         subkey,
