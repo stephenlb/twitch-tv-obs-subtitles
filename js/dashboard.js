@@ -10,16 +10,12 @@ async function main() {
     // Get the User Account Data
     while (!user) {
         user = await account();
-        if (!('result' in user)) user = null;
-        else user = user.result;
         if (!user) await delay(2000);
     }
 
     // Get the API Key Data
     while (!keys) {
         keys = await apikeys(user);
-        if (!('result' in keys)) keys = null;
-        else keys = keys.result;
         if (!keys) await delay(2000);
     }
 
@@ -41,8 +37,8 @@ function account() {
     return new Promise( resolve => {
         if (!token) return resolve(null);
         requester({
-            success : data => resolve(data)
-        ,   fail    : data => resolve(data)
+            success : data => resolve(data && data.result || null)
+        ,   fail    : data => resolve(null)
         })({ url : url });
     } );
 }
@@ -57,8 +53,8 @@ function apikeys(user) {
     const url    = `${domain}/api/apps?owner_id=${id}&token=${token}`;
     return new Promise( resolve => {
         requester({
-            success : data => resolve(data)
-        ,   fail    : data => resolve(data)
+            success : data => resolve(data && data.result || null)
+        ,   fail    : data => resolve(null)
         })({ url : url });
     } );
 }
