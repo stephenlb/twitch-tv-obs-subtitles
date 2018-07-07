@@ -21,7 +21,7 @@ Header Text and Graphics
 div#header {
     overflow: hidden;
     position: relative;
-    min-height: 800px;
+    min-height: 860px;
     width: 100%;
     display: flex;
     background: linear-gradient(to top,    rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%, rgba(255,255,255,0) 100%),
@@ -193,8 +193,7 @@ Live Example
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 div#header div.live-example {
     flex: 1;
-    width: 320px;
-    height: 240px;
+    height: 340px;
 }
 div#header div.live-example iframe {
     background: transparent;
