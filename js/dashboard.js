@@ -23,6 +23,11 @@ async function main() {
         if (!keys) await delay(2000);
     }
 
+    // Detect Twitch APP ( if not exist then create )
+    // Update OBS Browser Source URL and Live Capture iFrame
+    //document.querySelector('#obs-url').src = '';
+    //document.querySelector('#subtitle-display').value = '';
+
     console.log(user, keys);
 }
 
