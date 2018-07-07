@@ -145,7 +145,7 @@ div#header div.instructions {
     margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
-    color: #333;
+    color: #444;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
@@ -153,6 +153,7 @@ div#header div.installation-guide {
     flex: 1;
     margin: 0 20px;
     font-size: 16px;
+    line-height: 26px;
 }
 
 div#header div.instructions div.install-step {
@@ -165,15 +166,15 @@ div#header div.instructions div.install-step {
 div#header div.instructions step {
     display: inline-block;
     border-radius: 100px;
-    background: rgba(255,255,255,0.7);
+    background: rgba(30,190,197,0.6);
     text-shadow: 0px 0px 5px rgba(0,0,0,0.3);
     width: 50px;
     height: 50px;
     line-height: 50px;
     font-size: 22px;
-    color: #23232e;
+    color: #fff;
     text-align: center;
-    margin: 15px 20px 15px 0px;
+    margin: 25px 20px 25px 0px;
 }
 
 div#header div.instructions detail {
@@ -184,7 +185,7 @@ div#header div.instructions detail {
 div#header div.instructions input {
     font-size: 10px;
     padding: 10px;
-    width: 100px;
+    width: 140px;
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
