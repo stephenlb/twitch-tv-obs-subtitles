@@ -72,7 +72,7 @@ const requester = window.requester = function(setup={}) {
             xhr.setRequestHeader( header, headers[header] );
 
         // Send Request
-        xhr.send(payload);
+        xhr.send(payload ? JSON.stringify(payload) : null);
 
         // Timeout and Aboart for Slow Requests
         xhr.timer && clearTimeout(xhr.timer);

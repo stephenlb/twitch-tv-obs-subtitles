@@ -45,6 +45,11 @@ gulp.task( 'html', e => {
         .pipe(wrapper({ header : '<script>', footer : '</script>' })),
 
         gulp
+        .src('js/portal.js')
+        .pipe(jsmin())
+        .pipe(wrapper({ header : '<script>', footer : '</script>' })),
+
+        gulp
         .src('js/dashboard.js')
         .pipe(jsmin())
         .pipe(wrapper({ header : '<script>', footer : '</script>' }))
