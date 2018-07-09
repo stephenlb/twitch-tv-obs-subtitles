@@ -4,16 +4,50 @@
 // Main
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function main() {
-    const appName = 'Twitch TV Subtitles';
-    const user    = await portal.autoApp(appName);
 
-    console.log(user);
+    // UI Elements
+    const captureFrame = document.querySelector('#subtitle-display');
+    const obsLink      = document.querySelector('#obs-url');
 
-    // Detect Twitch APP ( if not exist then create )
+    // Subtitles Application Page
+    const obsDomain = 'https://stephenlb.github.io';
+    const obsPath   = '/twitch-tv-obs-subtitles';
+
+    // Detect if speech transcription is availabl
+    const available = speechAvailable();
+
+    // Set Frame Warning if Speech Unavailable
+    if (!available) {
+        captureFrame.src = `${obsDomain}${obsPath}/unavailable.html`;
+        return;
+    }
+
+    // Detect Twitch App and Get API Keys
+    const appName   = 'Twitch TV Subtitles';
+    const user      = await portal.autoApp(appName);
+    const obsParams = {
+        subkey  : user.keys.subscribe_key
+    ,   pubkey  : user.keys.publish_key
+    ,   channel : 'subtitles'
+    };
+    const obsSource = `${obsDomain}${obsPath}/subtitles.html?${obsParams}`;
+
     // Update OBS Browser Source URL and Live Capture iFrame
-    //document.querySelector('#obs-url').src = '';
-    //document.querySelector('#subtitle-display').value = '';
+    captureFrame.src = obsSource;
+    obsLink.value    = obsSource;
 
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Speech Transcription Available
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+function speechAvailable() {
+    const recognition = new (
+        window.SpeechRecognition       ||
+        window.webkitSpeechRecognition ||
+        Object
+    )();
+    return !!recognition.start;
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
