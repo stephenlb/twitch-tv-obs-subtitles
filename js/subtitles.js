@@ -62,7 +62,7 @@ function updateSubtitles(speech) {
 // Listen for Voice Commands
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function listen() {
-    await delay(300);
+    await delay(200);
     spoken.listen({continuous:false}).then( speech => {
         candidate(speech);
         used = {};
