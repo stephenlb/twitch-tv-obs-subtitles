@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div class="instructions">
+        <div id="instructions">
             <div class="live-example"><iframe
                 id="subtitle-display"
                 src="https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html"
@@ -41,13 +41,14 @@
                 <div id="step-2" class="install-step">
                     <step>2</step>
                     <detail>
+                        First,
                         <a target="register"
                             href="https://admin.pubnub.com/#/register"
-                        >Complete this form</a>
-                        and <strong>Come back to this page!</strong>
+                        >complete this form</a>,
+                        and then <strong>come back to this page!</strong>
                         You need free API keys. When you complete the form,
-                        this page will generate the URL in step 3 with your
-                        API Keys for your OBS browser source.
+                        this page will automatically generate the OBS URL
+                        in step 3 with your API Keys for your OBS browser source.
                         <br><br>
                         <small>
                             If you already have API Keys you can
@@ -72,6 +73,19 @@
                 <div id="step-4" class="install-step">
                     <step>4</step>
                     <detail>
+                        <strong>Keep this page open while you stream.</strong>
+                        This page captures your voice transcript and
+                        transmits the subtitles into OBS via PubNub.
+                        If you accidentally close this page, you can always come back.
+                        Make sure you are logged-in from step 2.
+                        Step 2 appears if you are not logged-in.
+                        The shooting star-animated background is hidden
+                        so your computer stays cool.
+                    </detail>
+                </div>
+                <div id="step-5" class="install-step">
+                    <step>5</step>
+                    <detail>
                         <a target="fork"
                         href="https://github.com/stephenlb/twitch-tv-obs-subtitles/fork"
                         >Customize the look</a>: 
@@ -79,14 +93,6 @@
                         watermarks and change the colors for free.
                         Start by forking the repository then
                         read further details below on this page.
-                    </detail>
-                </div>
-                <div id="step-5" class="install-step">
-                    <step>5</step>
-                    <detail>
-                        <strong>Keep this page open while you stream.</strong>
-                        This page captures your voice transcript and
-                        transmits the subtitles into OBS via PubNub.
                     </detail>
                 </div>
             </div>

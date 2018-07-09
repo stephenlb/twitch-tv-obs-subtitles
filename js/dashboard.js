@@ -8,17 +8,22 @@ async function main() {
     // UI Elements
     const captureFrame = document.querySelector('#subtitle-display');
     const obsLink      = document.querySelector('#obs-url');
+    const heroHeader   = document.querySelector('#header');
+    const instructions = document.querySelector('#instructions');
+    const step1        = document.querySelector('#step-1');
+    const step2        = document.querySelector('#step-2');
 
     // Subtitles Application Page
     const obsDomain = 'https://stephenlb.github.io';
     const obsPath   = '/twitch-tv-obs-subtitles';
 
-    // Detect if speech transcription is availabl
+    // Detect if speech transcription is available
     const available = speechAvailable();
 
     // Set Frame Warning if Speech Unavailable
     if (!available) {
         captureFrame.src = `${obsDomain}${obsPath}/unavailable.html`;
+        instructions.className = 'no-installation-guide';
         return;
     }
 
@@ -30,15 +35,23 @@ async function main() {
     ,   pubkey  : user.keys.publish_key
     ,   channel : 'subtitles'
     };
+
     const obsParams = Object.keys(obsVars).map(
         k => `${k}=${obsVars[k]}`
     ).join('&');
+
     const obsSource = `${obsDomain}${obsPath}/subtitles.html?${obsParams}`;
+
+    // Hide Step 1 & 2 Since we did them.
+    step1.style.display = 'none';
+    step2.style.display = 'none';
+
+    // Hide Shooting Stars for OBS Performance
+    heroHeader.className = 'no-stars';
 
     // Update OBS Browser Source URL and Live Capture Frame
     captureFrame.src = obsSource;
     obsLink.value    = obsSource;
-
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
