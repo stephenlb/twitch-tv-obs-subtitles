@@ -7,9 +7,9 @@ open to experimental ways to **increase followers** on your stream.
 And you don't want to spend money, because reasons and
 the internet should be free!
 
-## OBS Twitch Installation
+##  Installation Guide: OBS Subtitles for Twitch TV
 
-> https://www.pubnub.com/developers/twitch-tv-obs-subtitles/
+> **Start here:** https://www.pubnub.com/developers/twitch-tv-obs-subtitles/
 
 Follow the easy 60 second installation.
 To install Subtitles in OBS for Twitch, start by visiting the URL above.
@@ -22,7 +22,7 @@ To install Subtitles in OBS for Twitch, start by visiting the URL above.
 
 Browser Sources can be added to your scenes of your streaming software and
 enable you to use web based content such as Flash and JavaScript applications,
-websites and so on and even customize them via css. Since this kind of content
+websites and so on and even customize them via CSS. Since this kind of content
 is usually not written in the same coding languages as your streaming
 application, a translator is needed to make it possible for both to
 communicate with each other.
