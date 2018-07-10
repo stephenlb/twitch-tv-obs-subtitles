@@ -110,7 +110,7 @@ div#header div.shooting-stars div.overlay {
     top: 0px;
     left: 0px;
     width: 100vw;
-    height: 100%;
+    height: 102%;
     background: linear-gradient( to top,
         rgba(255,255,255,1)   0%,
         rgba(255,255,255,0)  10%,
@@ -217,7 +217,7 @@ div#video-tutorial div.content div.step {
     font-size: 18px;
 }
 div#video-tutorial div.content div img {
-    width: 400px;
+    min-width: 400px;
     height: 250px;
 }
 

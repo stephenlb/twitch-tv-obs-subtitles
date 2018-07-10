@@ -7,10 +7,14 @@ the internet should be free!
 
 ## OBS Twitch Installation
 
-60 second installation.
-To install Subtitles in OBS for Twitch, start by visiting this URL:
+> https://www.pubnub.com/developers/twitch-tv-obs-subtitles/
 
-> ...../dashboard.html
+Follow the easy 60 second installation.
+To install Subtitles in OBS for Twitch, start by visiting the URL above.
+
+![Step 1](https://i.imgur.com/ScIDnJc.gif)
+![Step 2](https://i.imgur.com/kRfIlao.gif)
+![Step 3](https://i.imgur.com/s0vvMlC.gif)
 
 #### What is an OBS Browser Source?
 
@@ -21,16 +25,3 @@ is usually not written in the same coding languages as your streaming
 application, a translator is needed to make it possible for both to
 communicate with each other.
 
-![Giphy Voice](https://i.imgur.com/pYRYKmT.png)
-![OBS Source Overlay](https://i.imgur.com/t8Plu5G.png)
-
-# Build Website Page
-
-Project Landing Page is easy to build just run this:
-
-```shell
-npm install
-gulp
-```
-
-Then you can upload `build/dashboard.html` to the website.
