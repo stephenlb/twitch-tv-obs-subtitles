@@ -6,6 +6,15 @@ div.content {
     width: 80%;
     z-index: 1;
 }
+div#article div.content {
+    max-width: 700px;
+    color: #555;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 21px;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+}
 
 body {
     font-family: "San Francisco",
