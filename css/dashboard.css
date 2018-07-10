@@ -6,6 +6,9 @@ div.content {
     width: 80%;
     z-index: 1;
 }
+div#article {
+    margin-top: 60px;
+}
 
 div#article div.content {
     max-width: 700px;
