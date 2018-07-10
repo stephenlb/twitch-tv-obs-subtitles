@@ -67,7 +67,6 @@
                         <input id="obs-url" onclick="this.focus();this.select()"
                             readonly="readonly" value="Complete Step 2">
                         Copy URL into OBS Browser Source.
-                        <a href="">Watch Tutorial Video</a>.
                     </detail>
                 </div>
                 <div id="step-4" class="install-step">
@@ -101,20 +100,43 @@
 <!-- Video Tutorial Area -->
 <div id="video-tutorial">
     <div class="content">
-        Video: How to add Subtitles in OBS
-        YouTube Video: How to add Subtitles in OBS
-        ... stuff say things here.
+        <h2>How to add Subtitles for OBS Live Streams</h2>
+    </div>
+    <div class="content">
+        <div class="step">Step 1</div>
+        <div class="step">Step 2</div>
+        <div class="step">Step 3</div>
+    </div>
+    <div class="content">
+        <div>
+            <img src="https://i.imgur.com/ScIDnJc.gif" 
+                alt="How to add Subtitles to Twitch TV in OBS Step 1"
+                width="400" height="250">
+        </div>
+        <div>
+            <img src="https://i.imgur.com/kRfIlao.gif" 
+                alt="How to add Subtitles to Twitch TV in OBS Step 2"
+                width="400" height="250">
+        </div>
+        <div>
+            <img src="https://i.imgur.com/s0vvMlC.gif" 
+                alt="How to add Subtitles to Twitch TV in OBS Step 3"
+                width="400" height="250">
+        </div>
     </div>
 </div>
 
 <!-- Hero Call-out Area -->
 <div id="hero-call-out">
     <div class="content">
-        hero 3x section
-
-        1 Open Source and free. You can fork the github repo
-        2 Works on YouTube Live and Twitch TV
-        3 Used to while recording a screen cast.
+        <div>
+            Open Source and free.
+            Clone the <a href="https://github.com/stephenlb/twitch-tv-obs-subtitles/">
+            Twitch OBS Subtitles</a>
+            GitHub Repository
+        </div>
+        <div>Works with YouTube Live and Twitch TV</div>
+        <div>Webinars and Screencast videos</div>
     </div>
 </div>
 
@@ -124,7 +146,8 @@
     <div class="content">
         <h2>Why PubNub makes OBS Plugins Better</h2>
         <p>
-            PubNub provides data transfer from one app to another app.
+            PubNub connects everything, everywhere,
+            providing data transfer from one app to another app.
             In the case of the subtitles captured for Twitch TV,
             your web browser app is sending data to your OBS app.
             Essentially your computer is sending data to
@@ -133,6 +156,10 @@
             browser using your microphone.
             The resulting transcription is transmitted
             into the OBS Browser Source.
+        </p><p>
+            <img src="https://i.imgur.com/fHPe9dZ.gif" 
+                alt="PubNub Twitch TV OBS Subtitles Plugin"
+                width="700" height="366">
         </p><p>
             Imagine now you can send data directly into OBS
             and create entirely new online live experiences.
@@ -164,6 +191,9 @@
             transcription into a computer terminal which appends the closed
             captioning directly into the Television Signal.
             The technical job title is a "stenographer".
+        </p><p>
+            <video autoplay loop muted
+                src="https://i.imgur.com/GLai8ij.mp4" width="700" height="391">
         </p><p>
             During a live broadcast of a special event or of a news program,
             captions appear just a few seconds behind the action to show
@@ -206,27 +236,41 @@
             you can have a robot do it for, at no extra cost.
         </p>
         
-        <h2>How to add Subtitles for OBS Live Streams</h2>
+        <h2>How to make OBS Plugins for Twitch TV</h2>
         <p>
-            
+            Plugins should be easy to make!
+            And for OBS, this is true.
+            Hurray!
+            The best way by far, my opinion, is using
+            <strong>OBS Browser Sources</strong>.
+            Start by trying to add a new Browser Source to your Scene.
+            The following example shows you how to add the source.
+        <p></p>
+            <img src="https://imgur.com/oPXWvZk.gif"
+                alt="Add OBS Browser Source"
+                width="700" height="532">
+        <p></p>
+            The above shows you how to add a Browser Source, which is
+            easiest way to add your custom plugin into OBS.
+            You can set the URL to a local html file which contains your
+            code for the plugin.
+            The code in the HTML file may be simple or complex.
+        <p></p>
+            <a href="https://github.com/stephenlb/twitch-tv-obs-subtitles/blob/master/subtitles.html">
+                Twitch TV OBS Subtitles</a>
+            is a great example of what you may put into the HTML file.
+            It's really that simple!
+            You can have animated Cats and cat pictures that change over time.
+            Pretty much anything you can image, just with some HTML and CSS.
+            It's a whole new world and you can have as many cats as you like!
         </p>
-
-        <h2>Conclusion..... </h2>
-        <p>
-            
-        </p>
-
-
     </div>
 
     <div class="content">
-        <h2>How to make OBS Plugins for Twitch TV</h2>
-        <p>
-            
-        </p>
     </div>
+
 </div>
 
 <script src="js/request.js"></script>
-<script src="js/portal.js"></script>
-<script src="js/dashboard.js"></script>
+<script src="js/portal.js"></script> 
+<script src="js/dashboard.js"></scripSt>
