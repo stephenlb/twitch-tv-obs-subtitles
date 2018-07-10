@@ -6,9 +6,10 @@ div.content {
     width: 80%;
     z-index: 1;
 }
+
 div#article div.content {
     max-width: 700px;
-    color: #555;
+    color: rgba(0,0,0,.84);
     font-weight: 400;
     font-style: normal;
     font-size: 21px;
@@ -34,7 +35,7 @@ div#header {
     width: 100%;
     display: flex;
     background: linear-gradient(to top,    rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%, rgba(255,255,255,0) 100%),
-                linear-gradient(265deg,    rgba(230,98,177,1)  0%, rgba(230,98,177,1)  10%, rgba(230,98,177,0)  100%),
+                linear-gradient(265deg,    rgba(230,98,177,1)  0%, rgba(230,98,177,1)  20%, rgba(230,98,177,0)  100%),
                 linear-gradient(85deg,     rgba(30,190,197,1)  0%, rgba(30,190,197,1)  50%, rgba(30,190,197,0)  100%),
                 linear-gradient(to bottom, rgba(70,215,174,1)  0%, rgba(70,215,174,0) 100%);
 }
@@ -81,6 +82,13 @@ div#header div.subtitle {
       0% { text-shadow: 0px 0px 40px rgba(255,255,255,1.0) }
      30% { text-shadow: 0px 0px  6px rgba(255, 55,255,0.2) }
     100% { }
+}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Video Tutorial Area
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+div#video-tutorial {
+    margin: 60px 0;
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -142,7 +150,7 @@ div#header div.shooting-stars e {
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 Footer
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
-div#footer {
+div#hero-call-out {
     position: relative;
     width: 100%;
     height: 300px;
