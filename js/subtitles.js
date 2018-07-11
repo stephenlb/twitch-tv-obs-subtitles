@@ -7,10 +7,10 @@ const defaultPubkey   = 'pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe';
 const defaultSubkey   = 'sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14';
 const defaultChannel  = uuid();
 const defaultMaxWords = 25;
-const pubkey          = uripart('pubkey')          || defaultPubkey;
-const subkey          = uripart('subkey')          || defaultSubkey;
-const channel         = uripart('channel')         || defaultChannel;
-const maxWords        = uripart('maxwords')        || defaultMaxWords;
+const pubkey          = uripart('pubkey')   || defaultPubkey;
+const subkey          = uripart('subkey')   || defaultSubkey;
+const channel         = uripart('channel')  || defaultChannel;
+const maxWords        = uripart('maxwords') || defaultMaxWords;
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Introduction Text
@@ -27,9 +27,7 @@ let subtitles = document.querySelector('#subtitle');
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function main() {
     // Listen for OBS Updates
-    startSubscribe( channel, speech => {
-        updateSubtitles(speech.phrase);
-    } );
+    startSubscribe( channel, speech => updateSubtitles(speech.phrase) );
 
     // Listen for Words
     listen();
@@ -53,9 +51,16 @@ function candidate(speech) {
 // Update Subtitles
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function updateSubtitles(speech) {
-    let words = speech.split(' ');
-    subtitles.innerHTML = words.slice(-maxWords).join(' ');
+    subtitles.innerHTML = getMaxWords(speech);
     return subtitles.innerHTML;
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Ensure only maxWords are displayed on the screen
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+function getMaxWords(speech) {
+    let words = speech.split(' ');
+    return words.slice(-maxWords).join(' ');
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
