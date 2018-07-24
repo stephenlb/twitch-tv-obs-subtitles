@@ -43,7 +43,7 @@
                     <detail>
                         Next,
                         <a target="register"
-                            href="https://admin.pubnub.com/#/register"
+                            href="https://admin.pubnub.com/#/register?utm_source=twitch-tv-obs-subtitles&utm_medium=twitch-tv-obs-subtitles&utm_campaign=twitch-tv-obs-subtitles&utm_content=twitch-tv-obs-subtitles"
                         >complete this form</a>,
                         and then <strong>come back to this page!</strong>
                         You need free API keys. When you complete the form,
@@ -53,7 +53,7 @@
                         <small>
                             If you already have API Keys you can
                             <a target="login"
-                                href="https://admin.pubnub.com/#/login"
+                                href="https://admin.pubnub.com/#/login?utm_source=twitch-tv-obs-subtitles&utm_medium=twitch-tv-obs-subtitles&utm_campaign=twitch-tv-obs-subtitles&utm_content=twitch-tv-obs-subtitles"
                             >login here</a> instead.
                             <strong>
                                 Remember to return to this page.
@@ -138,40 +138,34 @@
 <div id="article">
 
     <div class="content">
-        <h2>Why PubNub makes OBS Plugins Better</h2>
+        <h2>How to make OBS Plugins for Twitch TV</h2>
         <p>
-            PubNub connects everything, everywhere,
-            providing data transfer from one app to another app.
-            In the case of the subtitles captured for Twitch TV,
-            your web browser app is sending data to your OBS app.
-            Essentially your computer is sending data to
-            itself between two apps.
-            Your voice is being transcribed in your web
-            browser using your microphone.
-            The resulting transcription is transmitted
-            into the OBS Browser Source.
+            Plugins should be easy to make!
+            And for OBS, this is true.
+            Hurray!
+            The best way by far, my opinion, is using
+            <strong>OBS Browser Sources</strong>.
+            Start by trying to add a new Browser Source to your Scene.
+            The following example shows you how to add the source.
         </p><p>
-            <img src="https://i.imgur.com/fHPe9dZ.gif" 
-                alt="PubNub Twitch TV OBS Subtitles Plugin"
-                width="700" height="366">
+            <img src="https://imgur.com/oPXWvZk.gif"
+                alt="Add OBS Browser Source"
+                width="700" height="532">
         </p><p>
-            Imagine now you can send data directly into OBS
-            and create entirely new online live experiences.
-            You, or a friend, can use your an iPad to draw 
-            action lines on your live stream.
-            You can give remote control to channel mods to manage 
-            your screen display and make minor changes.
-            So many cool things can happen now.
+            The above shows you how to add a Browser Source, which is
+            easiest way to add your custom plugin into OBS.
+            You can set the URL to a local html file which contains your
+            code for the plugin.
+            The code in the HTML file may be simple or complex.
         </p><p>
-            PubNub can send data to anywhere.
-            More than just sending data from
-            one app into another app on the same computer.
-            PubNub can send data to other computers nearby.
-            It can even send data to computers around the world.
-            Anywhere the internet exists, data can be transferred.
-        </p><p>
-            PubNub can broadcast data from one app into all other apps.
-            Millions of apps all-at-once, and even more beyond that.
+            <a target="example-html"
+                href="https://github.com/stephenlb/twitch-tv-obs-subtitles/blob/master/subtitles.html">
+                Twitch TV OBS Subtitles</a>
+            is a great example of what you may put into the HTML file.
+            It's really that simple!
+            You can have animated Cats and cat pictures that change over time.
+            Pretty much anything you can image, just with some HTML and CSS.
+            It's a whole new world and you can have as many cats as you like!
         </p>
     </div>
 
@@ -230,35 +224,41 @@
             Instead of hiring a transcriber (stenographer) while you stream,
             you can have a robot do it for, at no extra cost.
         </p>
-        
-        <h2>How to make OBS Plugins for Twitch TV</h2>
+
+        <h2>Why PubNub makes OBS Plugins Better</h2>
         <p>
-            Plugins should be easy to make!
-            And for OBS, this is true.
-            Hurray!
-            The best way by far, my opinion, is using
-            <strong>OBS Browser Sources</strong>.
-            Start by trying to add a new Browser Source to your Scene.
-            The following example shows you how to add the source.
+            PubNub connects everything, everywhere,
+            providing data transfer from one app to another app.
+            In the case of the subtitles captured for Twitch TV,
+            your web browser app is sending data to your OBS app.
+            Essentially your computer is sending data to
+            itself between two apps.
+            Your voice is being transcribed in your web
+            browser using your microphone.
+            The resulting transcription is transmitted
+            into the OBS Browser Source.
         </p><p>
-            <img src="https://imgur.com/oPXWvZk.gif"
-                alt="Add OBS Browser Source"
-                width="700" height="532">
+            <img src="https://i.imgur.com/fHPe9dZ.gif" 
+                alt="PubNub Twitch TV OBS Subtitles Plugin"
+                width="700" height="366">
         </p><p>
-            The above shows you how to add a Browser Source, which is
-            easiest way to add your custom plugin into OBS.
-            You can set the URL to a local html file which contains your
-            code for the plugin.
-            The code in the HTML file may be simple or complex.
+            Imagine now you can send data directly into OBS
+            and create entirely new online live experiences.
+            You, or a friend, can use your an iPad to draw 
+            action lines on your live stream.
+            You can give remote control to channel mods to manage 
+            your screen display and make minor changes.
+            So many cool things can happen now.
         </p><p>
-            <a target="example-html"
-                href="https://github.com/stephenlb/twitch-tv-obs-subtitles/blob/master/subtitles.html">
-                Twitch TV OBS Subtitles</a>
-            is a great example of what you may put into the HTML file.
-            It's really that simple!
-            You can have animated Cats and cat pictures that change over time.
-            Pretty much anything you can image, just with some HTML and CSS.
-            It's a whole new world and you can have as many cats as you like!
+            PubNub can send data to anywhere.
+            More than just sending data from
+            one app into another app on the same computer.
+            PubNub can send data to other computers nearby.
+            It can even send data to computers around the world.
+            Anywhere the internet exists, data can be transferred.
+        </p><p>
+            PubNub can broadcast data from one app into all other apps.
+            Millions of apps all-at-once, and even more beyond that.
         </p>
     </div>
 

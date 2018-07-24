@@ -49,7 +49,7 @@ div#header div.title {
     font-weight: 400;
     text-align: center;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-    margin-top: 100px;
+    margin-top: 150px;
 }
 div#header div.title e {
     display: inline-block;
@@ -70,7 +70,8 @@ div#header div.subtitle {
     color: #fff;
     font-size: 24px;
     font-weight: 300;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 60px;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
@@ -229,7 +230,6 @@ div#header div#instructions.no-installation-guide div.installation-guide {
 }
 
 div#header div#instructions {
-    margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
     color: #444;
