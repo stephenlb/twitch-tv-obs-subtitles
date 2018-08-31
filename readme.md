@@ -27,6 +27,13 @@ is usually not written in the same coding languages as your streaming
 application, a translator is needed to make it possible for both to
 communicate with each other.
 
+## BUILD
+
+This will build ./build/dashboard.html and copy source to your clipboard.
+
+```
+./copy
+```
 
 ## See more voice app projects
 
