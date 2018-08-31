@@ -27,9 +27,13 @@ is usually not written in the same coding languages as your streaming
 application, a translator is needed to make it possible for both to
 communicate with each other.
 
-## BUILD
+## Build Website Landingpage
 
-This will build ./build/dashboard.html and copy source to your clipboard.
+You will not need to do this as it is only a tool used for building the
+landing page on the PubNub Website.
+This will build `./build/dashboard.html` and copy source to your clipboard.
+You can see a live version of the
+[Twitch TV OBS Subtitles Browser Source](https://www.pubnub.com/developers/twitch-tv-obs-subtitles/) page.
 
 ```
 ./copy
