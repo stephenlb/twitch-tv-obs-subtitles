@@ -15,7 +15,7 @@ Follow the easy 60 second installation.
 To install Subtitles in OBS for Twitch, start by visiting the URL above.
 
 ![Step 1](https://i.imgur.com/ScIDnJc.gif)
-![Step 2](https://i.imgur.com/kRfIlao.gif)
+![Step 2](https://i.imgur.com/MFhOheM.png)
 ![Step 3](https://i.imgur.com/s0vvMlC.gif)
 
 #### What is an OBS Browser Source?

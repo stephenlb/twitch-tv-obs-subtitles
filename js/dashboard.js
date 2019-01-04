@@ -10,8 +10,6 @@ async function main() {
     const obsLink      = document.querySelector('#obs-url');
     const heroHeader   = document.querySelector('#header');
     const instructions = document.querySelector('#instructions');
-    const step1        = document.querySelector('#step-1');
-    const step2        = document.querySelector('#step-2');
 
     // Subtitles Application Page
     const obsDomain = 'https://stephenlb.github.io';
@@ -27,13 +25,16 @@ async function main() {
         return;
     }
 
-    // Detect Twitch App and Get API Keys
-    const appName = 'Twitch TV Subtitles';
-    const user    = await portal.autoApp(appName);
+    // Setup Persisted Unique Channel
+    let channel    = cookie('TwitchOBSChannel');
+    let rndchannel = ''+ +new Date + ''+ Math.floor(Math.random()*1000000000);
+    if (!channel) channel = cookie( 'TwitchOBSChannel', rndchannel );
+
+    // Set API Keys
     const obsVars = {
-        subkey  : user.keys.subscribe_key
-    ,   pubkey  : user.keys.publish_key
-    ,   channel : 'subtitles'
+        subkey  : 'sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14'
+    ,   pubkey  : 'pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe'
+    ,   channel : channel
     };
 
     const obsParams = Object.keys(obsVars).map(
@@ -41,10 +42,6 @@ async function main() {
     ).join('&');
 
     const obsSource = `${obsDomain}${obsPath}/subtitles.html?${obsParams}`;
-
-    // Hide Step 1 & 2 Since we did them.
-    step1.style.display = 'none';
-    step2.style.display = 'none';
 
     // Hide Shooting Stars for OBS Performance
     heroHeader.className = 'no-stars';
@@ -72,6 +69,18 @@ function speechAvailable() {
 function delay(duration) {
     return new Promise( resolve => setTimeout( resolve, duration ) );
 }
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Get/Set Cookie Data
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+function cookie( name, value ) {
+    if (value) document.cookie = `${name}=${value}`;
+    const match = document.cookie.match(
+        new RegExp('(^| )' + name + '=([^;]+)')
+    );
+    if (match) return match[2];
+}
+
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Run Main
