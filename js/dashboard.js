@@ -43,8 +43,8 @@ async function main() {
 
     const obsSource = `${obsDomain}${obsPath}/subtitles.html?${obsParams}`;
 
-    // Hide Shooting Stars for OBS Performance
-    heroHeader.className = 'no-stars';
+    // Hide Shooting Stars for OBS Performance after 30 seconds
+    setTimeout( a => heroHeader.className = 'no-stars', 30 * 1000 );
 
     // Update OBS Browser Source URL and Live Capture Frame
     captureFrame.src = obsSource;
