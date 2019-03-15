@@ -21,7 +21,7 @@ markers.addMarker({
 });
 
 markers.addMarker({
-    tag     : 'css-removal',
+    tag     : 'title-removal',
     re      : /<title>[^<]+<\/title>/,
     replace : e => ''
 });

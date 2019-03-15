@@ -45,7 +45,7 @@ div#header {
 div#header div.title {
     width: 100%;
     color: #fff;
-    font-size: 60px;
+    font-size: 80px;
     font-weight: 400;
     text-align: center;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
@@ -59,12 +59,15 @@ div#header div.title e {
         colorer calc( var(--child) * 0.5s + 1.0s)
         ease-in-out calc(var(--child) * -0.8s + 1s) infinite alternate;
 }
+div#header.no-stars > div.content > div.title e {
+    animation: none;
+}
 div.title twitch {
     display: inline-block;
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 63px;
-    height: 65px;
+    width: 83px;
+    height: 85px;
 }
 div#header div.subtitle {
     color: #fff;
@@ -121,7 +124,7 @@ div#header div.shooting-stars div.overlay {
 div#header div.shooting-stars e {
     position: absolute;
     top: calc( var(--child) * 10px + 10px);
-    left: calc( var(--child) * 6.8vw - 0.5vw);
+    left: calc( var(--child) * 4.8vw - 0.5vw);
     display: block;
     width: 3px;
     height: 800px;

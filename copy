@@ -1,2 +1,4 @@
 #!/bin/bash
-gulp && cat build/dashboard.html | pbcopy
+gulp && cat build/dashboard.html                  | \
+    sed -e 's/\<link rel="stylesheet"[^\>]*\>//g' | \
+    pbcopy
