@@ -12,7 +12,7 @@ const subkey          = uripart('subkey')   || defaultSubkey;
 const pubkey          = uripart('pubkey')   || defaultPubkey;
 const channel         = uripart('channel')  || defaultChannel;
 const maxWords        = uripart('maxwords') || defaultMaxWords;
-const subtitleStyle   = uripart('style')    || defaultStyle;
+let   subtitleStyle   = uripart('style')    || defaultStyle;
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Introduction Text
@@ -29,7 +29,10 @@ let subtitles = document.querySelector('#subtitle');
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function main() {
     // Listen for OBS Updates
-    startSubscribe( channel, speech => updateSubtitles(speech.phrase) );
+    startSubscribe( channel, speech => updateSubtitles(speech) );
+
+    // Set Styles of Subtiltle Text
+    updateSubtitleStyle(subtitleStyle);
 
     // Listen for Words
     listen();
@@ -46,14 +49,27 @@ async function main() {
 // Word Search Candidate
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function candidate(speech) {
-    publish( channel, { phrase : updateSubtitles(speech) } );
+    publish( channel, {
+        phrase : updateSubtitles({ phrase: speech })
+    ,   style  : subtitleStyle
+    } );
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Update Subtitles Style
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+function updateSubtitleStyle(style) {
+    subtitles.style = style;
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Update Subtitles
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function updateSubtitles(speech) {
-    subtitles.innerHTML = getMaxWords(speech);
+    if (speech && speech['style']) subtitleStyle = speech['style'];
+    updateSubtitleStyle(subtitleStyle);
+    speech.style = subtitleStyle;
+    subtitles.innerHTML = getMaxWords(speech.phrase);
     return subtitles.innerHTML;
 }
 
@@ -97,7 +113,7 @@ function uripart(key) {
         params[kv[0]] = kv[1];
     } );
 
-    if (key in params) return params[key];
+    if (key in params) return decodeURIComponent(params[key]);
 
     return '';
 }

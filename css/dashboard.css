@@ -45,7 +45,7 @@ div#header {
 div#header div.title {
     width: 100%;
     color: #fff;
-    font-size: 50px;
+    font-size: 60px;
     font-weight: 400;
     text-align: center;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
@@ -63,8 +63,8 @@ div.title twitch {
     display: inline-block;
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 53px;
-    height: 55px;
+    width: 63px;
+    height: 65px;
 }
 div#header div.subtitle {
     color: #fff;
@@ -121,7 +121,7 @@ div#header div.shooting-stars div.overlay {
 div#header div.shooting-stars e {
     position: absolute;
     top: calc( var(--child) * 10px + 10px);
-    left: calc( var(--child) * 2.8vw - 0.5vw);
+    left: calc( var(--child) * 6.8vw - 0.5vw);
     display: block;
     width: 3px;
     height: 800px;
@@ -277,7 +277,29 @@ div#header div#instructions input {
 }
 
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-Live Example
+Live Preview Subtitle Styles
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+div#header div#subtitle-styles {
+    flex: 1;
+    color: #fefef2;
+    font-family: "San Francisco",
+        "Helvetica Neue", "Helvetica",
+        Arial, Sans-Serif;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 28px;
+    text-shadow: 3px 1px 4px #222;
+}
+div#header div#subtitle-styles div {
+    display: inline-block;
+    border: solid rgba(255,255,255,0.5) 1px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Live Preview
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 div#header div.live-example {
     flex: 1;

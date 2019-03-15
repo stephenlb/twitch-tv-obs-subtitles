@@ -10,10 +10,13 @@ async function main() {
     const obsLink      = document.querySelector('#obs-url');
     const heroHeader   = document.querySelector('#header');
     const instructions = document.querySelector('#instructions');
+    const styler       = document.querySelector('#subtitle-styles');
 
     // Subtitles Application Page
     const obsDomain = 'https://stephenlb.github.io';
     const obsPath   = '/twitch-tv-obs-subtitles';
+    //const obsDomain = 'https://0.0.0.0:4443';
+    //const obsPath   = '/';
 
     // Detect if speech transcription is available
     const available = speechAvailable();
@@ -27,6 +30,7 @@ async function main() {
 
     // Setup Persisted Unique Channel
     let channel    = cookie('TwitchOBSChannel');
+    let styling    = cookie('TwitchOBSStyling') || '';
     let rndchannel = ''+ +new Date + ''+ Math.floor(Math.random()*1000000000);
     if (!channel) channel = cookie( 'TwitchOBSChannel', rndchannel );
 
@@ -41,7 +45,14 @@ async function main() {
         k => `${k}=${obsVars[k]}`
     ).join('&');
 
-    const obsSource = `${obsDomain}${obsPath}/subtitles.html?${obsParams}`;
+    // OBS Source Link Gennerator
+    function generateOBSSourceURL(style) {
+        let es = encodeURIComponent(style);
+        return `${obsDomain}${obsPath}/subtitles.html?${obsParams}&style=${es}`
+    }
+
+    // Generate First OBS URL ( future urls generated on sytle update )
+    const obsSource = generateOBSSourceURL(cookie('TwitchOBSStyling')||'');
 
     // Hide Shooting Stars for OBS Performance after 30 seconds
     setTimeout( a => heroHeader.className = 'no-stars', 30 * 1000 );
@@ -49,7 +60,23 @@ async function main() {
     // Update OBS Browser Source URL and Live Capture Frame
     captureFrame.src = obsSource;
     obsLink.value    = obsSource;
+
+    // Set Bind on Style Selector
+    styler.addEventListener( 'click', (e) => {
+        let style        = e.target.getAttribute('style');
+        let url          = generateOBSSourceURL(style);
+
+        if (!style) return;
+
+        // Save Selected Stylek
+        cookie( 'TwitchOBSStyling', style );
+
+        // Update Preview Display
+        captureFrame.src = url;
+        obsLink.value    = url;
+    } );
 }
+
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Speech Transcription Available
@@ -74,13 +101,9 @@ function delay(duration) {
 // Get/Set Cookie Data
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function cookie( name, value ) {
-    if (value) document.cookie = `${name}=${value}`;
-    const match = document.cookie.match(
-        new RegExp('(^| )' + name + '=([^;]+)')
-    );
-    if (match) return match[2];
+    if (value) localStorage.setItem( name, JSON.stringify(value) );
+    return JSON.parse(localStorage.getItem(name));
 }
-
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Run Main
