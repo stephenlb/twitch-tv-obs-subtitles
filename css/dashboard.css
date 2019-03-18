@@ -51,6 +51,11 @@ div#header div.title {
     text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
     margin-top: 150px;
 }
+div#header div.title nowrap {
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
 div#header div.title e {
     display: inline-block;
     animation:
@@ -66,8 +71,8 @@ div.title twitch {
     display: inline-block;
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 83px;
-    height: 85px;
+    width: 74px;
+    height: 78px;
 }
 div#header div.subtitle {
     color: #fff;
@@ -298,7 +303,7 @@ div#header div#subtitle-styles {
     text-align: center;
     width: auto;
     height: auto;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 div#header div#subtitle-styles div {
     flex: 1;
@@ -318,7 +323,6 @@ Live Preview
 div#header div.live-example {
     flex: 1;
     height: 340px;
-    min-width: 420px;
 }
 div#header div.live-example iframe {
     background: transparent;
