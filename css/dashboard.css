@@ -45,7 +45,7 @@ div#header {
 div#header div.title {
     width: 100%;
     color: #fff;
-    font-size: 80px;
+    font-size: 90px;
     font-weight: 400;
     text-align: center;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
@@ -71,8 +71,8 @@ div.title twitch {
     display: inline-block;
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 74px;
-    height: 78px;
+    width: 84px;
+    height: 90px;
 }
 div#header div.subtitle {
     color: #fff;
