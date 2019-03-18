@@ -31,9 +31,9 @@ div#subtitle {
     align-items: center;
     justify-content: center;
     align-content: center;
-    text-align: center;
-    width: 100vw;
-    height: 100vh;
+    text-align: left;
+    width: auto;
+    height: auto;
 }
 
 div#hero {
