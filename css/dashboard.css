@@ -284,19 +284,28 @@ Live Preview Subtitle Styles
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 div#header div#subtitle-styles {
     flex: 1;
+    display: flex;
     color: #fefef2;
     font-family: "San Francisco",
         "Helvetica Neue", "Helvetica",
         Arial, Sans-Serif;
     cursor: pointer;
+    flex-direction: row;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: auto;
+    height: auto;
 }
 div#header div#subtitle-styles div {
+    flex: 1;
     font-size: 20px;
     font-weight: 200;
     line-height: 30px;
     border-radius: 3px;
     text-shadow: 3px 1px 4px #222;
-    display: inline-block;
     border: solid rgba(255,255,255,0.5) 1px;
     padding: 10px;
     margin: 0 6px 10px 0;
