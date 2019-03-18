@@ -298,6 +298,7 @@ div#header div#subtitle-styles {
     text-align: center;
     width: auto;
     height: auto;
+    margin-bottom:20px;
 }
 div#header div#subtitle-styles div {
     flex: 1;
