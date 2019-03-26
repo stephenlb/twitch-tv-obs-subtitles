@@ -19,6 +19,7 @@ div#article div.content p {
     font-size: 21px;
     line-height: 1.58;
     letter-spacing: -.003em;
+    margin-bottom: 30px;
 }
 div#article div.content h2 {
     font-size: 32px;
@@ -166,7 +167,11 @@ div#header div.shooting-stars e {
 StreamElements Official Support
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 div#article div.streamelements-details img {
-    width: 100%;
+    text-align: center;
+    width: 90%;
+    height: 160px;
+    object-fit: cover;
+    object-position: 20% 0 -20% 0;
 }
 div#streamelements {
     position: relative;
@@ -271,7 +276,7 @@ div#video-tutorial div.content div {
     flex: 1;
 }
 div#video-tutorial div.content h2 {
-    font-size: 36px;
+    font-size: 46px;
     font-weight: 200;
     margin: 60px 0;
 }
