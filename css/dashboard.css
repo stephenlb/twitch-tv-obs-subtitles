@@ -192,12 +192,6 @@ div#streamelements div.content {
     justify-content: center;
     align-content: center;
 }
-@media only screen and (max-width: 1280px) {
-    div#streamelements div.content {
-        flex-direction: column;
-        flex-flow: column wrap;
-    }
-}
 div#streamelements div.content a:active,
 div#streamelements div.content a:visited,
 div#streamelements div.content a {
