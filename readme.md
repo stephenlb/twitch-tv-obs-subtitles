@@ -125,7 +125,9 @@ https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?channel=MY_TW
 If they are others, they will block your local page.
 
 5.) Add a new browser source in OBS.
+
 6.) Check `Local file` in OBS Browser config window.
+
 7.) Click `Browser` and select `subtitles.html`.
 
 That's it!
