@@ -81,6 +81,15 @@ That's why we've included a second option that may work better for you.
 
 ## Alternate: Running Twitch.TV Subtitles from Local Files on your Hard Drive
 
+> While this method is easier, it is not the preferred method.
+This method introduces an opportunity for someone else to take
+over your subtitles mid-stream.
+It is unlikely that someone will know how to do this,
+however it is easy for a hacker.
+If you want to avoid a hacker taking over your subtitles,
+use the secure method:
+[Secure Method](#running-twitchtv-subtitles-from-local-files-on-your-hard-drive).
+
 #### 1.) Edit the file `js/username.js`.
 It will look like this:
 
@@ -100,8 +109,8 @@ function username() {
 }
 ```
 
-#### 2.) Copy the URL from Step 2 on the 
-[Subtitles Twitch.TV Page](https://www.pubnub.com/developers/twitch-tv-obs-subtitles/)
+#### 2.) Copy the URL from Step 2 on the [Subtitles Twitch.TV Page](https://www.pubnub.com/developers/twitch-tv-obs-subtitles/)
+
 It will look similar to this:
 
 ```shell
