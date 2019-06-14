@@ -106,7 +106,7 @@ function username() {
 It will look similar to this:
 
 ```shell
-https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=1552687539739502028833&style=background%3Ablack%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px%3B
+https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?channel=1552687539739502028833&subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&style=background%3Ablack%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px%3B
 ```
 
 3.) Modify the copied URL from Step 2 by replacing
@@ -118,7 +118,7 @@ https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-
 4.) Point your Chrome Browser to: 
 
 ```shell
-https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=MY_TWITCH_ID_HERE&style=background%3Ablack%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px%3B
+https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?channel=MY_TWITCH_ID_HERE&subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&style=background%3Ablack%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px%3B
 ```
 
 5.) Add a new browser source in OBS.
