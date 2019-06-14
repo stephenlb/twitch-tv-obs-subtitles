@@ -39,6 +39,9 @@ div#subtitle {
 div#hero {
     width: 100vw;
     height: 100vh;
+    font-size: 80;
+    color: red;
+    padding-top: 100px;
 }
 
 div#hero video {
