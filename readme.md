@@ -46,10 +46,11 @@ python -m SimpleHTTPServer 8080
 > If the `cd` command fails, you need to know where the folder is located.
 > You must `cd` to the folder `twitch-tv-obs-subtitles`.
 > It may be in your `Downloads` folder: `cd Downloads/twitch-tv-obs-subtitles`.
+> If you are still having trouble, you may try the **`Alternate`** lower in this document.
 
-#### 3.) Copy the URL from Step 2 on the 
-[Subtitles Twitch.TV Page](https://www.pubnub.com/developers/twitch-tv-obs-subtitles/)
-It will look similar to this:
+#### 3.) Copy the URL from Step 2 on the  [Subtitles Twitch.TV Page](https://www.pubnub.com/developers/twitch-tv-obs-subtitles/)
+
+The URL will look similar to this:
 
 ```shell
 https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=1552687539739502028833&style=background%3Ablack%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px%3B
