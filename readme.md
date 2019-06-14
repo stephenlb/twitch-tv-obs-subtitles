@@ -48,7 +48,7 @@ python -m SimpleHTTPServer 8080
 > It may be in your `Downloads` folder: `cd Downloads/twitch-tv-obs-subtitles`.
 > If you are still having trouble, you may try the **`Alternate`** lower in this document.
 
-#### 3.) Copy the URL from Step 2 on the  [Subtitles Twitch.TV Page](https://www.pubnub.com/developers/twitch-tv-obs-subtitles/)
+#### 3.) Copy the URL from Step 2 on the [Subtitles Twitch.TV Page](https://www.pubnub.com/developers/twitch-tv-obs-subtitles/)
 
 The URL will look similar to this:
 
@@ -89,6 +89,9 @@ however it is easy for a hacker.
 If you want to avoid a hacker taking over your subtitles,
 use the secure method:
 [Secure Method](#running-twitchtv-subtitles-from-local-files-on-your-hard-drive).
+
+> Also if you're using [Subtitles Twitch.TV Page](https://www.pubnub.com/developers/twitch-tv-obs-subtitles/)
+directly off the PubNub website, then your are secured automatically.
 
 #### 1.) Edit the file `js/username.js`.
 It will look like this:
