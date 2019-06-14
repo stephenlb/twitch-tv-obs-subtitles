@@ -78,10 +78,6 @@ That's why we've included a second option that may work better for you.
 
 ## Alternate: Running Twitch.TV Subtitles from Local Files on your Hard Drive
 
-> ⚠️  Warning this option is not secure.
-It is not the prefered method as someone else can take over your subtiltles.
-Continue at your own risk.
-
 1.) Edit the file `js/username.js`.
 It will look like this:
 
@@ -128,13 +124,11 @@ If they are others, they will block your local page.
 
 6.) Check `Local file` in OBS Browser config window.
 
-7.) Click `Browser` and select `subtitles.html`.
+7.) Click `Browse` button and select `subtitles.html`
+found in your folder `twitch-tv-obs-subtitles`.
 
 That's it!
-While this optin is easier, security is still a concern.
-You can increase security by putting a random number in your Twitch ID.
-Make sure both `username.js` `return "MY_TWITCH_ID_HERE_000"`
-and the `channel=MY_TWITCH_ID_HERE_000` match.
+Easy right?
 
 #### What is an OBS Browser Source?
 
