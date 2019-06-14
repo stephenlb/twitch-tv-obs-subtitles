@@ -32,7 +32,7 @@ non-working page with *"Start talking."* permanently stuck on the viewport.
 #### 2.) After you've installed Python, open your terminal and start the 
 Python Simple HTTP Server in the same director as the Twitch.TV Subtitles:
 
-> Window: Press `WinKey+R` type `cmd` and press "Enter" to open a Command Prompt
+> Windows: Press `WinKey+R` type `cmd` and press "Enter" to open a Command Prompt
 
 > Mac: Press `Command+Space` type `terminal` and press "Enter".
 
