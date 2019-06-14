@@ -31,10 +31,19 @@ non-working page with *"Start talking."* permanently stuck on the viewport.
 2.) After you've installed Python, open your terminal and start the 
 Python Simple HTTP Server in the same director as the Twitch.TV Subtitles:
 
+> Window: Press `WinKey+R` type `cmd` and press "Enter" to open a Command Prompt
+> Mac: Press `Command+Space` type `terminal` and press "Enter".
+
+Navigate to the Twitch TV Subtitles directory using `cd` command.
+
 ```shell
 cd twitch-tv-obs-subtitles
 python -m SimpleHTTPServer 8080
 ```
+
+> If the `cd` command fails, you need to know where the folder is located.
+> You must `cd` to the folder `twitch-tv-obs-subtitles`.
+> It may be in your `Downloads` folder: `cd Downloads/twitch-tv-obs-subtitles`.
 
 3.) Copy the URL from Step 2 on the 
 [Subtitles Twitch.TV Page](https://www.pubnub.com/developers/twitch-tv-obs-subtitles/)
@@ -48,8 +57,10 @@ https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-
 > This page will capture your voice and transmit it to your local computer.
 
 4.) Modify the copied URL from Step 3 by replacing
-**`https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html`** 
-with **`http://0.0.0.0:8080/subtitles.html`**.
+
+**`https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html`** with
+
+**`http://0.0.0.0:8080/subtitles.html`**.
 
 Your final URL will look like:
 ```shell
@@ -62,6 +73,62 @@ Note that your final URL will differ from the one shown above.
 That's it!  
 If you've made a mistake start over from the beginning 
 it won't hurt to repeat any of the steps.
+However you may run into issues.
+That's why we've included a second option that may work better for you.
+
+## Alternate: Running Twitch.TV Subtitles from Local Files on your Hard Drive
+
+> ⚠️  Warning this option is not secure.
+It is not the prefered method as someone else can take over your subtiltles.
+Continue at your own risk.
+
+1.) Edit the file `js/username.js`.
+It will look like this:
+
+```js
+function username() {
+    return ""; // <-- Fill in your username
+               // example: return "ninja";
+}
+```
+
+And type in your Twitch Username like this:
+
+```js
+function username() {
+    return "MY_TWITCH_ID_HERE"; // <-- Fill in your username
+               // example: return "ninja";
+}
+```
+
+2.) Copy the URL from Step 2 on the 
+[Subtitles Twitch.TV Page](https://www.pubnub.com/developers/twitch-tv-obs-subtitles/)
+It will look similar to this:
+
+```shell
+https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=1552687539739502028833&style=background%3Ablack%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px%3B
+```
+
+3.) Modify the copied URL from Step 2 by replacing
+
+**`channel=1552687539739502028833`**  with
+
+**`channel=MY_TWITCH_ID_HERE`**.
+
+4.) Point your Chrome Browser to: 
+
+```shell
+https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=MY_TWITCH_ID_HERE&style=background%3Ablack%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px%3B
+```
+
+5.) Add a new browser source in OBS.
+6.) Check `Local file` in OBS Browser config window.
+7.) Click `Browser` and select `subtitles.html`.
+
+That's it!  While this optin is easier, security is still a concern.
+You can increase security by putting a number in your Twitch ID.
+Make sure both `username.js` `return "MY_TWITCH_ID_HERE_000"`
+and the `channel=MY_TWITCH_ID_HERE_000` match.
 
 #### What is an OBS Browser Source?
 

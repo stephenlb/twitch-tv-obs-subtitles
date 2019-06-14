@@ -10,7 +10,7 @@ const defaultMaxWords = 250;
 const defaultStyle    = '';
 const subkey          = uripart('subkey')   || defaultSubkey;
 const pubkey          = uripart('pubkey')   || defaultPubkey;
-const channel         = uripart('channel')  || askchannel() || defaultChannel;
+const channel         = uripart('channel')  || username() || askchannel() || defaultChannel;
 const maxWords        = uripart('maxwords') || defaultMaxWords;
 let   subtitleStyle   = uripart('style')    || defaultStyle;
 
@@ -18,14 +18,12 @@ let   subtitleStyle   = uripart('style')    || defaultStyle;
 // Ask for Channel
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function askchannel() {
-    if (location.host     != "0.0.0.0:8080" &&
-        location.protocol != "file:") return;
-
-    document.querySelector("#hero").innerHTML                            =
+    let instructions                                                     = 
         "Missing configuration!<br>"                                     +
         "<a href='https://github.com/stephenlb/twitch-tv-obs-subtitles/" + 
         "blob/master/readme.md#running-twitchtv-subtitles-from-local-"   +
         "files-on-your-hard-drive'>Follow Instructions</a>";
+    setTimeout( e => candidate(instructions), 1000 );
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
