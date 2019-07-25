@@ -8,6 +8,7 @@ const defaultPubkey   = 'pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe';
 const defaultChannel  = uuid();
 const defaultMaxWords = 250;
 const defaultStyle    = '';
+const mic             = uripart('mic')      || 'on';
 const subkey          = uripart('subkey')   || defaultSubkey;
 const pubkey          = uripart('pubkey')   || defaultPubkey;
 const channel         = uripart('channel')  || username() || askchannel() || defaultChannel;
@@ -45,6 +46,9 @@ async function main() {
 
     // Set Styles of Subtiltle Text
     updateSubtitleStyle(subtitleStyle);
+
+    // Listen to Microphone
+    if (mic == 'off') return;
 
     // Listen for Words
     listen();
