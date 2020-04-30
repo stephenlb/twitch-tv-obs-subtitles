@@ -6,7 +6,7 @@
 async function main() {
 
     // UI Elements
-    const captureFrame = document.querySelector('#subtitle-display');
+    const captureFrame = (url) => { let f = document.querySelector('#subtitle-display'); f.setAttribute('data-src',url); f.setAttribute('src',url); };
     const obsLink      = document.querySelector('#obs-url');
     const heroHeader   = document.querySelector('#header');
     const instructions = document.querySelector('#instructions');
@@ -23,7 +23,7 @@ async function main() {
 
     // Set Frame Warning if Speech Unavailable
     if (!available) {
-        captureFrame.src = `${obsDomain}${obsPath}/unavailable.html`;
+        captureFrame(`${obsDomain}${obsPath}/unavailable.html`);
         instructions.className = 'no-installation-guide';
         return;
     }
@@ -58,7 +58,7 @@ async function main() {
     setTimeout( a => heroHeader.className = 'no-stars', 30 * 1000 );
 
     // Update OBS Browser Source URL and Live Capture Frame
-    captureFrame.src = obsSource;
+    captureFrame(obsSource);
     obsLink.value    = obsSource;
 
     // Set Bind on Style Selector
@@ -72,7 +72,7 @@ async function main() {
         cookie( 'TwitchOBSStyling', style );
 
         // Update Preview Display
-        captureFrame.src = url;
+        captureFrame(url);
         obsLink.value    = url;
     } );
 }
