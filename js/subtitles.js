@@ -11,7 +11,7 @@ const defaultStyle    = '';
 const mic             = uripart('mic')      || 'on';
 const subkey          = uripart('subkey')   || defaultSubkey;
 const pubkey          = uripart('pubkey')   || defaultPubkey;
-const channel         = 'obs'+ (uripart('channel')  || username() || askchannel() || defaultChannel);
+const channel         = uripart('channel')  || username() || askchannel() || defaultChannel;
 const maxWords        = uripart('maxwords') || defaultMaxWords;
 let   subtitleStyle   = uripart('style')    || defaultStyle;
 
