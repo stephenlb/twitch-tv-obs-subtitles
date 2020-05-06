@@ -14,7 +14,7 @@ div::-webkit-scrollbar {
 
 div#subtitle {
     position: absolute;
-    top: 0px;
+    bottom: 75vh;
     left: 0px;
     background: transparent;
     font-family: "San Francisco",
