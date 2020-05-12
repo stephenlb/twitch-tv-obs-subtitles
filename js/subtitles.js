@@ -9,6 +9,7 @@ const defaultChannel  = uuid();
 const defaultMaxWords = 250;
 const defaultStyle    = '';
 const mic             = uripart('mic')      || 'on';
+const language        = uripart('language') || uripart('lang') || null;
 const subkey          = uripart('subkey')   || defaultSubkey;
 const pubkey          = uripart('pubkey')   || defaultPubkey;
 const channel         = uripart('channel')  || username() || askchannel() || defaultChannel;
@@ -46,6 +47,9 @@ async function main() {
 
     // Set Styles of Subtiltle Text
     updateSubtitleStyle(subtitleStyle);
+
+    // Set Language
+    if (language) spoken.recognition.lang = language;
 
     // Listen to Microphone
     if (mic == 'off') return;
@@ -102,7 +106,7 @@ function getMaxWords(speech) {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function listen() {
     await delay(200);
-    spoken.listen({continuous:false}).then( speech => {
+    spoken.listen({continuous:true}).then( speech => {
         candidate(speech);
         used = {};
     } ).catch( e => true );
