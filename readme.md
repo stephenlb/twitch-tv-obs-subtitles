@@ -18,6 +18,80 @@ To install Subtitles in OBS for Twitch, start by visiting the URL above.
 ![Step 2](https://i.imgur.com/MFhOheM.png)
 ![Step 3](https://i.imgur.com/s0vvMlC.gif)
 
+
+## Parameters and Settings
+
+It's easy to change various aspects of the voice capture system including
+language and text styles.
+
+### Set Language
+
+The default language is detected by your country of origin.
+However you may wish to set the language to English.
+
+The following will change the language to USA English:
+
+https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?language=es-US
+
+You can change the language to any language code.
+The following are just a few examples:
+
+ - English: `language=en-US`
+ - Spanish: `language=es`
+ - Mandarin: `language=zh`
+
+### Change Font Style
+
+You can set the font display style using any valid CSS modifiers.
+Some defaults are available for you.
+
+ - Set Style: `?style=CSS_HERE`
+ - Set Background White: `?style=background:%23white`
+ - Set Font Red: `?style=color:%23red`
+ - Set Text Padding: `?style=padding:10px`
+
+Here are some pre-built options to try:
+
+ - Clean: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=1588208805983537980353&style=color%3Argba(0%2C0%2C0%2C.9)%3Btext-shadow%3A0%200%205px%20%23fff
+ - CC Caption: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px
+ - Blue: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=1588208805983537980353&style=color%3A%2300f%3Bfont-weight%3A400%3Btext-shadow%3A0%200%205px%20%23fff
+ - Rainbow: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=1588208805983537980353&style=background%3Alinear-gradient(to%20right%2Corange%2C%23ff0%2Cgreen%2C%230ff%2C%2300f%2Cviolet)%20100%25%3Bfont-weight%3A800%3B-webkit-background-clip%3Atext%3B-webkit-text-fill-color%3Atransparent%3Btext-shadow%3Anone
+
+Sky is the limit!
+Enjoy.
+
+### Set Max Words
+
+Setting the maximum display words is easy using this URL parameter:
+
+https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?maxwords=10
+
+This will display a maximum of 10 words, just as an example.
+Exclude the parameter to remove the limit.
+
+
+### Disable the Microphone
+
+If you want this page to only be used to display your voice transcript
+you can disable the microphone.
+This allows you to share a URL that is read-only.
+
+https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?mic=off&subkey=sub-c-XXXX&channel=XXXX
+
+Note that you need to specify the Subscribe Key and Channel,
+while excluding the Publish Key.
+This will prevent others from speaking over your output. 
+
+### Subscribe and Publish Keys
+
+These keys are used for private account purposes.
+Only expose the Publish Key to your self, and do not share the key.
+
+You can get a new key at https://dashboard.pubnub.com/
+
+https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?mic=off&subkey=sub-c-XXXX&pubkey=pub-c-XXX&channel=XXXX
+
+
 ## Running Twitch.TV Subtitles from Local Files on your Hard Drive
 
 If you've downloaded this repository, made changes and want 
