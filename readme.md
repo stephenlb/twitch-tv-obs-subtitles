@@ -74,7 +74,7 @@ There's a way to crop using CSS like this `bottom:92vh`.
 
 > https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px;bottom:92vh
 
-![cc](https://user-images.githubusercontent.com/45214/81857728-84061900-9517-11ea-8195-a07aa7670c97.gif)
+![Closed Captions Last Two Lines](https://user-images.githubusercontent.com/45214/81858459-a3517600-9518-11ea-8963-1eb4faaea858.gif)
 
 Change the CSS to match your desired display.  For example you may wish to fine-tune the crop effect using the calc operator:
 
