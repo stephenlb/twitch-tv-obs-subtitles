@@ -61,6 +61,11 @@ Here are some pre-built options to try:
 
  - Clean: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=1588208805983537980353&style=color%3Argba(0%2C0%2C0%2C.9)%3Btext-shadow%3A0%200%205px%20%23fff
  - CC Caption: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px
+
+
+![closed-caption](https://user-images.githubusercontent.com/45214/81862643-d7c83080-951e-11ea-8f81-fb77bc945c69.gif)
+ 
+ 
  - Blue: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=1588208805983537980353&style=color%3A%2300f%3Bfont-weight%3A400%3Btext-shadow%3A0%200%205px%20%23fff
  - Rainbow: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?subkey=sub-c-79b0a26a-80a9-11e8-8f4a-96bbd71e7d14&pubkey=pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe&channel=1588208805983537980353&style=background%3Alinear-gradient(to%20right%2Corange%2C%23ff0%2Cgreen%2C%230ff%2C%2300f%2Cviolet)%20100%25%3Bfont-weight%3A800%3B-webkit-background-clip%3Atext%3B-webkit-text-fill-color%3Atransparent%3Btext-shadow%3Anone
  
