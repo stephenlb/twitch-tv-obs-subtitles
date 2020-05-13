@@ -233,7 +233,14 @@ is usually not written in the same coding languages as your streaming
 application, a translator is needed to make it possible for both to
 communicate with each other.
 
-## Build Website Landingpage
+
+## Open Captions
+
+Technically this software is considered as `Open Captions`,
+as the captions are controlled by the streamer/broadcaster.
+Closed Captions are controllable by the viewer of the stream.
+
+## Build Website Landing page
 
 You will not need to do this as it is only a tool used for building the
 landing page on the PubNub Website.
