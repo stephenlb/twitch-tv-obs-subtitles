@@ -1,5 +1,7 @@
 ![Add Subtitles to Twitch TV using OBS](https://www.pubnub.com/wp-content/uploads/2018/07/add-subtitles-to-twitch-tv-obs.png)
 
+![tcc](https://user-images.githubusercontent.com/45214/81859404-0abbf580-951a-11ea-9334-9fbee17416fd.gif)
+
 # Twitch TV Subtitles
 
 You are a **live streamer** using OBS ( Open Broadcaster Software ) and you are
