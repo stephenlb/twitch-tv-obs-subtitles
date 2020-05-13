@@ -39,6 +39,11 @@ The following are just a few examples:
  - English: `language=en-US`
  - Spanish: `language=es`
  - Mandarin: `language=zh`
+ - German: `language=de`
+ - Japanese: `language=ja`
+
+More language codes shown here:
+https://www.w3schools.com/tags/ref_language_codes.asp
 
 ### Change Font Style
 
