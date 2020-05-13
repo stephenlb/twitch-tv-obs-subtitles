@@ -89,6 +89,18 @@ Change the CSS to match your desired display.  For example you may wish to fine-
 
 `bottom:calc(100vh%20+%201.3em)`
 
+## Nyan Cat Subtitles
+
+Nyan Cat helps you with closed captioning. 
+Nyan Cat subtitles, just in case.
+
+![nyan-preview](https://user-images.githubusercontent.com/45214/81875360-f76a5380-9534-11ea-9600-3eb4eec0a8f6.gif)
+
+> Try it here: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles-nyan.html?channel=MYCHANNEL
+
+Since **Twitch Subtitles** and Streaming Closed Captions are open source and free tool, 
+it's open to fully customize the display any way you like.
+
 > https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px;bottom%3Acalc(100vh%20%2B%201.3em)
 
 ### Set Max Words
