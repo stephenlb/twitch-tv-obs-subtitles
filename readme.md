@@ -85,9 +85,15 @@ There's a way to crop using CSS like this `bottom:92vh`.
 
 ![Closed Captions Last Two Lines](https://user-images.githubusercontent.com/45214/81858459-a3517600-9518-11ea-8963-1eb4faaea858.gif)
 
-Change the CSS to match your desired display.  For example you may wish to fine-tune the crop effect using the calc operator:
+Change the CSS to match your desired display.  
+For example you may wish to fine-tune the crop effect using the calc operator:
 
 `bottom:calc(100vh%20+%201.3em)`
+
+https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px;bottom%3Acalc(100vh%20%2B%201.3em)
+
+Essentially you can add the CSS in the URL, or you can 
+customize the look and feel by [forking the repo and editing the HTML directly](https://github.com/stephenlb/twitch-tv-obs-subtitles/fork).
 
 ## Nyan Cat Subtitles
 
@@ -100,8 +106,6 @@ Nyan Cat subtitles, just in case.
 
 Since **Twitch Subtitles** and Streaming Closed Captions are open source and free tool, 
 it's open to fully customize the display any way you like.
-
-> https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px;bottom%3Acalc(100vh%20%2B%201.3em)
 
 ### Set Max Words
 
