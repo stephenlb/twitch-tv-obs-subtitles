@@ -1,0 +1,128 @@
+<title>Twitch Subtitles with OBS Browser Source Plugin</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/media/giphy-voice-twithc-obs-plugin-icon.png" />
+<link rel="stylesheet" href="css/subtitles.css" />
+<link rel="canonical" href="https://www.pubnub.com/developers/twitch-tv-obs-subtitles" />
+<link id="favicon" rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
+<div id="hero"></div>
+<div id="nyan">
+    <cat></cat><cat></cat><cat></cat><cat></cat><cat></cat><cat></cat>
+</div>
+<div id="subtitle"></div>
+<script src="https://stephenlb.github.io/spoken/spoken.js"></script>
+<script src="js/request.js"></script>
+<script src="js/username.js"></script>
+<script src="js/subtitles.js"></script>
+<style>
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/*   Rainbow Rainbow Rainbow Rainbow Rainbow   */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+@keyframes rainbow {
+  from {background-position: -8000px 0px}
+    to {background-position:     0px 0px}
+}
+div#subtitle {
+    width:100%;
+    text-align:left;
+    display: block;
+    padding: 10px;
+    background:
+        linear-gradient(90deg,orange,#ff0,green,#0ff,#00f,violet,orange);
+    font-weight:800;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:none;
+    animation:rainbow 120s linear 0s infinite;
+}
+div#subtitle::after {
+    content: url(media/nyan-no-rainbow-sm.gif);
+    padding: 20px;
+    position: relative;
+    /*top: 10vh;*/
+    opacity: 0.7;
+    /*
+    width: 50px;
+    height: 19px;
+    background-size 50px 19px;
+    */
+}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/*                Nyan Cat Meow                */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+cat {
+    position: absolute;
+    top: calc( var(--child) * 5vh + 1vh);
+    left: calc( var(--child) * 16vw - 15vw);
+    display: block;
+    width: 100px;
+    height: 38px;
+    background: url(media/nyan.gif);
+    background-size: 100px 38px;
+    animation:
+        fader calc( var(--child) * 1.8s + 1.7s)
+        ease-in-out calc(var(--child) * -80s) infinite alternate,
+        shooting-star calc( var(--child) * 1.5s + 2.0s)
+        ease-in-out calc(var(--child) * -80s) infinite alternate;
+}
+@keyframes shooting-star {
+      0% { transform: translate( 0vw, 10vh) }
+    100% { transform: translate(10vw,  0vh) }
+}
+@keyframes shooting-star-glimmer {
+      0% { opacity: 0.0 }
+    100% { opacity: 1.0 }
+}
+@keyframes fader {
+    0%   { opacity: 0.3 }
+    38%  { opacity: 0.2 }
+    85%  { opacity: 0.0 }
+    100% { opacity: 0.1 }
+}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/*    Enumerate children for css variables     */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+:nth-child(1)  { --child: 1   }
+:nth-child(2)  { --child: 2   }
+:nth-child(3)  { --child: 3   }
+:nth-child(4)  { --child: 4   }
+:nth-child(5)  { --child: 5   }
+:nth-child(6)  { --child: 6   }
+:nth-child(7)  { --child: 7   }
+:nth-child(8)  { --child: 8   }
+:nth-child(9)  { --child: 9   }
+:nth-child(10) { --child: 10  }
+:nth-child(11) { --child: 11  }
+:nth-child(12) { --child: 12  }
+:nth-child(13) { --child: 13  }
+:nth-child(14) { --child: 14  }
+:nth-child(15) { --child: 15  }
+:nth-child(16) { --child: 16  }
+:nth-child(17) { --child: 17  }
+:nth-child(18) { --child: 18  }
+:nth-child(19) { --child: 19  }
+:nth-child(20) { --child: 20  }
+:nth-child(21) { --child: 21  }
+:nth-child(22) { --child: 22  }
+:nth-child(23) { --child: 23  }
+:nth-child(24) { --child: 24  }
+:nth-child(25) { --child: 25  }
+:nth-child(26) { --child: 26  }
+:nth-child(27) { --child: 27  }
+:nth-child(28) { --child: 28  }
+:nth-child(29) { --child: 29  }
+:nth-child(30) { --child: 30  }
+:nth-child(31) { --child: 31  }
+:nth-child(32) { --child: 32  }
+:nth-child(33) { --child: 33  }
+:nth-child(34) { --child: 34  }
+:nth-child(35) { --child: 35  }
+:nth-child(36) { --child: 36  }
+:nth-child(37) { --child: 37  }
+:nth-child(38) { --child: 38  }
+:nth-child(39) { --child: 39  }
+:nth-child(40) { --child: 40  }
+:nth-child(41) { --child: 41  }
+:nth-child(42) { --child: 42  }
+</style>
