@@ -80,9 +80,9 @@ There's a way to crop using CSS like this `bottom:92vh`.
 
 Change the CSS to match your desired display.  For example you may wish to fine-tune the crop effect using the calc operator:
 
-`bottom:calc(100vh + 1.3em)`
+`bottom:calc(100vh%20+%201.3em)`
 
-> https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px;bottom:calc(100vh + 1.3em)
+> https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px;bottom%3Acalc(100vh%20%2B%201.3em)
 
 ### Set Max Words
 
