@@ -26,7 +26,7 @@ To install Subtitles in OBS for Twitch, start by visiting the URL above.
 It's easy to change various aspects of the voice capture system including
 language and text styles.
 
-### Set Language
+## Set Language
 
 The default language is detected by your country of origin.
 However you may wish to set the language to English.
@@ -47,7 +47,31 @@ The following are just a few examples:
 More language codes shown here:
 https://www.w3schools.com/tags/ref_language_codes.asp
 
-### Change Font Style
+## Original Voice Setting
+
+We've recently upgraded the voice detection algorithm to offer a continuous
+stream of voice detection.
+Prior to this feature the voice detection algorithm stopped
+for 0.2 - 1.5 seconds while a new voice recognition session initialized.
+The affect was a delay in recognizing your voice,
+also it would cause the text on the screen to clear.
+
+The new upgrade is a continuous voice session, without any pauses or delays.
+So overall it's an improved voice capture voice-to-text upgrade.
+However it's easy to see some may have relied on this.
+
+To restore the original algorithm use the `continuous=off` parameter.
+
+> https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?continuous=off
+
+The above link will take you to the original algorithm.
+If you also want to set the language to English, add the `language=en-US` parameter like this:
+
+> https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?language=en-US&continuous=off
+
+The above link will restore original voice detector and set the language to English.
+
+## Change Font Style
 
 You can set the font display style using any valid CSS modifiers.
 Some defaults are available for you.
@@ -74,7 +98,7 @@ Here are some pre-built options to try:
 Sky is the limit!
 Enjoy.
 
-### Display Last Two Lines
+## Display Last Two Lines
 
 Sometimes you don't want a wall of text.
 You want to set the display to show only the last two lines.
@@ -107,7 +131,7 @@ Nyan Cat subtitles, just in case.
 Since **Twitch Subtitles** and Streaming Closed Captions are open source and free tool, 
 it's open to fully customize the display any way you like.
 
-### Set Max Words
+## Set Max Words
 
 Setting the maximum display words is easy using this URL parameter:
 
@@ -116,8 +140,7 @@ https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?maxwords=10
 This will display a maximum of 10 words, just as an example.
 Exclude the parameter to remove the limit.
 
-
-### Disable the Microphone
+## Disable the Microphone
 
 If you want this page to only be used to display your voice transcript
 you can disable the microphone.
@@ -129,7 +152,7 @@ Note that you need to specify the Subscribe Key and Channel,
 while excluding the Publish Key.
 This will prevent others from speaking over your output. 
 
-### Subscribe and Publish Keys
+## Subscribe and Publish Keys
 
 These keys are used for private account purposes.
 Only expose the Publish Key to your self, and do not share the key.

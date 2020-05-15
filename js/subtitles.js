@@ -8,13 +8,14 @@ const defaultPubkey   = 'pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe';
 const defaultChannel  = uuid();
 const defaultMaxWords = 250;
 const defaultStyle    = '';
-const mic             = uripart('mic')      || 'on';
-const language        = uripart('language') || uripart('lang') || null;
-const subkey          = uripart('subkey')   || defaultSubkey;
-const pubkey          = uripart('pubkey')   || defaultPubkey;
-const channel         = uripart('channel')  || username() || askchannel() || defaultChannel;
-const maxWords        = uripart('maxwords') || defaultMaxWords;
-let   subtitleStyle   = uripart('style')    || defaultStyle;
+const continuous      = uripart('continuous') || 'on';
+const mic             = uripart('mic')        || 'on';
+const language        = uripart('language')   || uripart('lang') || null;
+const subkey          = uripart('subkey')     || defaultSubkey;
+const pubkey          = uripart('pubkey')     || defaultPubkey;
+const channel         = uripart('channel')    || username() || askchannel() || defaultChannel;
+const maxWords        = uripart('maxwords')   || defaultMaxWords;
+let   subtitleStyle   = uripart('style')      || defaultStyle;
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Ask for Channel
@@ -106,7 +107,7 @@ function getMaxWords(speech) {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function listen() {
     await delay(200);
-    spoken.listen({continuous:true}).then( speech => {
+    spoken.listen({continuous:continuous=='on'}).then( speech => {
         candidate(speech);
         used = {};
     } ).catch( e => true );
