@@ -47,29 +47,25 @@ The following are just a few examples:
 More language codes shown here:
 https://www.w3schools.com/tags/ref_language_codes.asp
 
-## Original Voice Setting
+## V1 Old Voice Setting - Downgrade Option
 
-We've recently upgraded the voice detection algorithm to offer a continuous
-stream of voice detection.
-Prior to this feature the voice detection algorithm stopped
+> We've recently upgraded the voice detection algorithm!
+
+The new algorithm offers a continuous stream of voice detection.
+The old V1 voice detection algorithm stopped recording
 for 0.2 - 1.5 seconds while a new voice recognition session initialized.
 The affect was a delay in recognizing your voice,
 also it would cause the text on the screen to clear.
 
-The new upgrade is a continuous voice session, without any pauses or delays.
+The new V2 upgrade is a continuous voice session, without any pauses or delays.
 So overall it's an improved voice capture voice-to-text upgrade.
-However it's easy to see some may have relied on this.
+However some may have relied on this.
 
-To restore the original algorithm use the `continuous=off` parameter.
+To downgrade the algorithm, use the `continuous=off` parameter.
 
 > https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?continuous=off
 
-The above link will take you to the original algorithm.
-If you also want to set the language to English, add the `language=en-US` parameter like this:
-
-> https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?language=en-US&continuous=off
-
-The above link will restore original voice detector and set the language to English.
+The above link will downgrade your voice-to-text to the old algorithm.
 
 ## Change Font Style
 
