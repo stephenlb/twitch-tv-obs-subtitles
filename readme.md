@@ -94,6 +94,33 @@ Here are some pre-built options to try:
 Sky is the limit!
 Enjoy.
 
+## Clear Text on Screen after you stop talking
+
+We've added a new feature to allow the text to clear from the screen after a
+moment of silence.
+The default is set to `4 seconds`.
+You can change this by setting the following:
+
+> Don't go lower than 2 seconds. It will cause unexpected problems for you.
+
+ - Clear Text after 2 Seconds: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?cleartime=2
+ - Clear Text after 5 Seconds: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?cleartime=5
+ - Clear Text after 10 Seconds: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?cleartime=10
+ - Clear Text after 100 Seconds: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?cleartime=100
+
+And so on, you can change the value to any valid number.
+Just don't go lower than 2 seconds.
+Using the default of 4 seconds is recommended.
+
+## Change Intro Text
+
+By default the intro text is set to "Start talking."
+You can change this value to anything you'd like:
+
+ - Intro Text BLANK: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?introtext=%20
+ - Intro Text "Hello!": https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?introtext=Hello!
+ - Intro Text "Whatup": https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?introtext=Whatup
+
 ## Display Last Two Lines
 
 Sometimes you don't want a wall of text.

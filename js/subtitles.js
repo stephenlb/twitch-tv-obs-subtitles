@@ -8,6 +8,8 @@ const defaultPubkey   = 'pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe';
 const defaultChannel  = uuid();
 const defaultMaxWords = 250;
 const defaultStyle    = '';
+const clearTime       = +uripart('cleartime') || 4; // Seconds
+const introText       = uripart('introtext')  || 'Start talking.';
 const continuous      = uripart('continuous') || 'on';
 const mic             = uripart('mic')        || 'on';
 const language        = uripart('language')   || uripart('lang') || null;
@@ -32,7 +34,7 @@ function askchannel() {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Introduction Text
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-setTimeout( e => candidate('Start talking.'), 10 );
+setTimeout( e => candidate(introText), 10 );
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // UI Elements
@@ -91,6 +93,15 @@ function updateSubtitles(speech) {
     updateSubtitleStyle(subtitleStyle);
     speech.style = subtitleStyle;
     subtitles.innerHTML = getMaxWords(speech.phrase);
+
+    // Clear Text after moments of silence.
+    clearTimeout(updateSubtitles.ival);
+    updateSubtitles.ival = setTimeout( async ival => {
+            subtitles.innerHTML = ' ';
+            spoken.listen.stop();
+            listen();
+    }, (+clearTime) * 1000 );
+
     return subtitles.innerHTML;
 }
 
