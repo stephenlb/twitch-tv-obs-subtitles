@@ -58,20 +58,6 @@ div#hero video.out {
     opacity: 0.0;
 }
 
-div#watermark {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 20vw;
-    height: 20vh;
-    background-image: url(../media/pubnub-logo.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    opacity: 0.2;
-}
-
 @keyframes smooth-in {
       0% { transform: translateX(-100vw) scale(1.0); opacity: 0.0; }
     100% { transform: translateX(0vw)    scale(1.0); opacity: 1.0; }
