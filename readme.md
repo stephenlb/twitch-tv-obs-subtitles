@@ -205,6 +205,15 @@ Python Simple HTTP Server in the same director as the Twitch.TV Subtitles:
 
 Navigate to the Twitch TV Subtitles directory using `cd` command.
 
+For Windows machines use:
+
+```shell
+cd twitch-tv-obs-subtitles
+python -m http.server 8000
+```
+
+For Mac machines use:
+
 ```shell
 cd twitch-tv-obs-subtitles
 python -m SimpleHTTPServer 8080
