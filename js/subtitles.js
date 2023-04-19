@@ -62,7 +62,7 @@ async function main() {
 
     // Continuous Listening
     spoken.listen.on.end(listen);
-    spoken.listen.on.error(listen);
+    spoken.listen.on.error(spoken.listen.on.end({}));
 
     // Search Giphy Image
     spoken.listen.on.partial(candidate);
