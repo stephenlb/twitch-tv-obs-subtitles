@@ -185,6 +185,37 @@ You can get a new key at https://dashboard.pubnub.com/
 https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?mic=off&subkey=sub-c-XXXX&pubkey=pub-c-XXX&channel=XXXX
 
 
+## Font Family
+
+ - Helvetica Neue - https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-family:Helvetica%20Neue;text-shadow%3Anone%3Bpadding%3A10px;bottom:92vh 
+
+<img width="495" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/6f55c92c-5101-40c5-84d9-d63f123500ad">
+
+ - Helvetica - https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-family:Helvetica;text-shadow%3Anone%3Bpadding%3A10px;bottom:92vh 
+
+<img width="510" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/6a845d35-0a0a-4971-a10d-880426611011">
+
+ - Sans - https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-family:Sans;text-shadow%3Anone%3Bpadding%3A10px;bottom:92vh
+
+<img width="511" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/4d490813-a55f-4f6b-94ec-cbc4914aa2ad">
+
+ - Arial - https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-family:Arial;text-shadow%3Anone%3Bpadding%3A10px;bottom:92vh
+
+<img width="537" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/8297808a-9add-4c00-9a31-260c204226df">
+
+ - Georgia - https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-family:Georgia;text-shadow%3Anone%3Bpadding%3A10px;bottom:92vh
+
+<img width="531" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/20f7e982-3e30-4259-bb0b-695e5c3f6469">
+
+ - Tahoma - https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-family:Tahoma;text-shadow%3Anone%3Bpadding%3A10px;bottom:92vh
+
+<img width="521" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/d6584b87-65d3-4704-ba73-507a003256ce">
+
+ - Monaco - https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-family:Monaco;text-shadow%3Anone%3Bpadding%3A10px;bottom:92vh
+
+<img width="770" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/48f9402b-0171-4d44-b531-73bc492fd35b">
+
+
 ## Running Twitch.TV Subtitles from Local Files on your Hard Drive
 
 If you've downloaded this repository, made changes and want 
