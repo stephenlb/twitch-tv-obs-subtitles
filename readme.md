@@ -215,6 +215,14 @@ https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?mic=off&subke
 
 <img width="770" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/48f9402b-0171-4d44-b531-73bc492fd35b">
 
+ - Courier - https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-family:Courier;text-shadow%3Anone%3Bpadding%3A10px;bottom:92vh
+
+<img width="776" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/97cd4fc7-09ad-4a9a-928a-fc9802fa9cfb">
+
+ - Courier New - https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-family:Courier%20New;text-shadow%3Anone%3Bpadding%3A10px;bottom:92vh
+
+<img width="762" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/103d1e10-352f-48d0-ad6b-594730e9240e">
+
 
 ## Running Twitch.TV Subtitles from Local Files on your Hard Drive
 
