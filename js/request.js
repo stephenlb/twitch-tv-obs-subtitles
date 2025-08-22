@@ -100,7 +100,7 @@ var subscribe = window.subscribe = function(setup) {
     ,   timeout   = setup.timeout   || 290000
     ,   timetoken = setup.timetoken || '0'
     ,   message   = setup.message   || function(){}
-    ,   windy     = setup.windowing || 1000
+    ,   windy     = setup.windowing || 10
     ,   windowing = 10
     ,   stop      = false
     ,   url       = ''
