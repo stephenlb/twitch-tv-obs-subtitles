@@ -1,6 +1,5 @@
 <img width="5090" height="2084" alt="Add Subtitles to Twitch TV using OBS" src="https://github.com/user-attachments/assets/f3fae7e8-b14d-414c-aea5-d87bfa718fc8" />
 
-
 ![tcc](https://user-images.githubusercontent.com/45214/81859404-0abbf580-951a-11ea-9334-9fbee17416fd.gif)
 
 # Twitch TV Subtitles
