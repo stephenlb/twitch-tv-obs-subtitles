@@ -1,0 +1,3 @@
+#!/bin/zsh
+docker build -t https-webserver .
+docker run -p 4443:4443 -it -v "$(pwd):/root/website" -v "$(pwd)/webserver:/root/webserver" https-webserver

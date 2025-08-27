@@ -19,6 +19,12 @@ const channel         = uripart('channel')    || username() || askchannel() || d
 const maxWords        = uripart('maxwords')   || defaultMaxWords;
 let   subtitleStyle   = uripart('style')      || defaultStyle;
 
+// Setup PubNub
+const pubnub = PubNub({
+    subscribeKey: subkey,
+    publishKey: pubkey
+});
+
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Ask for Channel
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -117,7 +123,7 @@ function getMaxWords(speech) {
 // Listen for Voice Commands
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 async function listen() {
-    await delay(200);
+    await delay(20);
     spoken.listen({continuous:continuous=='on'}).then( speech => {
         candidate(speech);
         used = {};
@@ -154,27 +160,20 @@ function uripart(key) {
 // Subscribe for OBS Updates
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function startSubscribe( channelName, callback ) {
-    subscribe({
-        subkey  : subkey
-    ,   channel : channelName
-    ,   message : payload => {
-            payload.m.forEach( message => callback(message.d) );
-        }
+    const subscription = pubnub.subscribe({
+        channel: channelName,
+        messages: callback
     });
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Publish Captured Subtitles
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-const origin = 'ps'+(Math.random()+'').split('.')[1]+'.pubnub.com';
 function publish( channelName, data={} ) {
-    return requester({ timeout : 10000 })({ url : [
-        'https://',  origin,
-        '/publish/', pubkey,
-        '/',         subkey,
-        '/0/',       channelName,
-        '/0/',       encodeURIComponent(JSON.stringify(data))
-    ].join('') });
+    return pubnub.publish({
+        channel: channelName,
+        message: data
+    });
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
