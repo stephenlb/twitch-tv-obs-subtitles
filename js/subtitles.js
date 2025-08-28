@@ -17,12 +17,14 @@ const subkey          = uripart('subkey')     || defaultSubkey;
 const pubkey          = uripart('pubkey')     || defaultPubkey;
 const channel         = uripart('channel')    || username() || askchannel() || defaultChannel;
 const maxWords        = uripart('maxwords')   || defaultMaxWords;
+const origin          = uripart('origin')     || null;
 let   subtitleStyle   = uripart('style')      || defaultStyle;
 
 // Setup PubNub
 const pubnub = PubNub({
     subscribeKey: subkey,
-    publishKey: pubkey
+    publishKey: pubkey,
+    origin: origin,
 });
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
