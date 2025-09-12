@@ -175,6 +175,21 @@ Note that you need to specify the Subscribe Key and Channel,
 while excluding the Publish Key.
 This will prevent others from speaking over your output. 
 
+## Auto-reload Page
+
+The page will automatically reload after 20 minutes by default to ensure TTS refreshes connections.
+You can change this behavior:
+
+ - Reload after 10 Minutes: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?reloadtime=10
+ - Reload after 30 Minutes: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?reloadtime=30
+ - Reload after 5000 Minutes: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?reloadtime=5000
+
+## PubNub Origin Override
+
+For super fast subtitles, you can override the default PubNub origin server:
+
+ - Use Custom Origin: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?origin=ps.pndsn.com
+
 ## Subscribe and Publish Keys
 
 These keys are used for private account purposes.
@@ -183,7 +198,6 @@ Only expose the Publish Key to your self, and do not share the key.
 You can get a new key at https://dashboard.pubnub.com/
 
 https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?mic=off&subkey=sub-c-XXXX&pubkey=pub-c-XXX&channel=XXXX
-
 
 ## Font Family
 
@@ -222,6 +236,11 @@ https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?mic=off&subke
  - Courier New - https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-family:Courier%20New;text-shadow%3Anone%3Bpadding%3A10px;bottom:92vh
 
 <img width="762" alt="image" src="https://github.com/stephenlb/twitch-tv-obs-subtitles/assets/45214/103d1e10-352f-48d0-ad6b-594730e9240e">
+
+
+## Center Text and show One Signle Word
+
+ - Center Text: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px;text-align:center;bottom:92vh;width:100vw&maxwords=1
 
 
 ## Running Twitch.TV Subtitles from Local Files on your Hard Drive

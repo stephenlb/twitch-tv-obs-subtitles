@@ -8,17 +8,18 @@ const defaultPubkey   = 'pub-c-fd9b97a4-7b78-4ae1-a21e-3614f2b6debe';
 const defaultChannel  = uuid();
 const defaultMaxWords = 250;
 const defaultStyle    = '';
-const clearTime       = +uripart('cleartime') || 4; // Seconds
-const introText       = uripart('introtext')  || 'Start talking.';
-const continuous      = uripart('continuous') || 'on';
-const mic             = uripart('mic')        || 'on';
-const language        = uripart('language')   || uripart('lang') || null;
-const subkey          = uripart('subkey')     || defaultSubkey;
-const pubkey          = uripart('pubkey')     || defaultPubkey;
-const channel         = uripart('channel')    || username() || askchannel() || defaultChannel;
-const maxWords        = uripart('maxwords')   || defaultMaxWords;
-const origin          = uripart('origin')     || null;
-let   subtitleStyle   = uripart('style')      || defaultStyle;
+const clearTime       = +uripart('cleartime')  || 4; // Seconds
+const reloadTime      = +uripart('reloadtime') || 20; // Minutes
+const introText       = uripart('introtext')   || 'Start talking.';
+const continuous      = uripart('continuous')  || 'on';
+const mic             = uripart('mic')         || 'on';
+const language        = uripart('language')    || uripart('lang') || null;
+const subkey          = uripart('subkey')      || defaultSubkey;
+const pubkey          = uripart('pubkey')      || defaultPubkey;
+const channel         = uripart('channel')     || username() || askchannel() || defaultChannel;
+const maxWords        = uripart('maxwords')    || defaultMaxWords;
+const origin          = uripart('origin')      || null;
+let   subtitleStyle   = uripart('style')       || defaultStyle;
 
 // Setup PubNub
 const pubnub = PubNub({
@@ -74,6 +75,13 @@ async function main() {
 
     // Search Giphy Image
     spoken.listen.on.partial(candidate);
+
+    // Auto-reload page after configured time
+    if (reloadTime > 0) {
+        setTimeout(() => {
+            location.reload();
+        }, reloadTime * 60 * 1000);
+    }
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
