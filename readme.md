@@ -242,6 +242,8 @@ https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?mic=off&subke
 
  - Center Text: https://stephenlb.github.io/twitch-tv-obs-subtitles/subtitles.html?style=background%3A%23000%3Bfont-weight%3A600%3Btext-transform%3Auppercase%3Btext-shadow%3Anone%3Bpadding%3A10px;text-align:center;bottom:92vh;width:100vw&maxwords=1
 
+<img width="157" height="113" alt="image" src="https://github.com/user-attachments/assets/d99d3645-4045-4a28-a70b-cb0c3ec273d2" />
+
 
 ## Running Twitch.TV Subtitles from Local Files on your Hard Drive
 
