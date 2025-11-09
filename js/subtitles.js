@@ -88,11 +88,14 @@ async function main() {
 // Word Search Candidate
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function candidate(speech) {
-    console.log('Original Speech:', speech);
     publish( channel, {
         phrase : updateSubtitles({ phrase: speech })
     ,   style  : subtitleStyle
     } );
+    if (speech.includes('?')) {
+        location.reload();
+        return;
+    }
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
