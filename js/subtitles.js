@@ -88,6 +88,7 @@ async function main() {
 // Word Search Candidate
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function candidate(speech) {
+    console.log('Original Speech:', speech);
     publish( channel, {
         phrase : updateSubtitles({ phrase: speech })
     ,   style  : subtitleStyle
@@ -125,7 +126,7 @@ function updateSubtitles(speech) {
 // Ensure only maxWords are displayed on the screen
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function getMaxWords(speech) {
-    let words = speech.split(' ');
+    let words = speech.split(' ').filter( w => w );
     return words.slice(-maxWords).join(' ');
 }
 

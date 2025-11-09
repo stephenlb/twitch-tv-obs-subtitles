@@ -55,7 +55,7 @@ const subscribe = PubNub.subscribe = (setup={}) => {
     startStream();
 
     async function startStream() {
-        let uri = `https://${origin}/stream/${subkey}/${channel}/0/${timetoken}`;
+        let uri = `http://${origin}/stream/${subkey}/${channel}/0/${timetoken}`;
         buffer  = '';
 
         try      { response = await fetch(`${uri}?${params}`, {signal}) }
@@ -134,11 +134,10 @@ const publish = PubNub.publish = async (setup={}) => {
     let uuid      = setup.userId       || PubNub.userId       || defaultUserId;
     let message   = setup.message      || 'missing-message';
     let metadata  = setup.metadata     || PubNub.metadata     || {};
-    let uri       = `https://${origin}/publish/${pubkey}/${subkey}/0/${channel}/0`;
+    let uri       = `http://${origin}/publish/${pubkey}/${subkey}/0/${channel}/0/${encodeURIComponent(JSON.stringify(message))}`;
     let params    = `auth=${authkey}&meta=${encodeURIComponent(JSON.stringify(metadata))}&uuid=${uuid}`;
-    let payload   = { method: 'POST', body: JSON.stringify(message) };
 
-    try      { return await fetch(`${uri}?${params}`, payload) }
+    try      { return await fetch(`${uri}?${params}`) }
     catch(e) { return false }
 };
 
