@@ -21,6 +21,21 @@ const maxWords        = uripart('maxwords')    || defaultMaxWords;
 const origin          = uripart('origin')      || null;
 let   subtitleStyle   = uripart('style')       || defaultStyle;
 
+// Profanity Filter Word List
+const profanityList = [
+    'ass', 'asshole', 'bastard', 'bitch', 'bollocks',
+    'bullshit', 'cock', 'crap', 'cunt', 'damn', 'dammit',
+    'dick', 'douche', 'douchebag', 'fag', 'faggot', 'god',
+    'fuck', 'fucking', 'fucked', 'fucker', 'goddamn', 'goddammit',
+    'hell', 'horseshit', 'jackass', 'motherfucker', 'motherfucking',
+    'nigger', 'nigga', 'piss', 'prick', 'pussy',
+    'shit', 'shitty', 'slut', 'twat', 'whore',
+    'wanker', 'wtf', 'stfu', 'fu'
+];
+const profanityRegex = new RegExp(
+    '\\b(' + profanityList.join('|') + ')\\b', 'gi'
+);
+
 // Setup PubNub
 const pubnub = PubNub({
     subscribeKey: subkey,
@@ -112,7 +127,7 @@ function updateSubtitles(speech) {
     if (speech && speech['style']) subtitleStyle = speech['style'];
     updateSubtitleStyle(subtitleStyle);
     speech.style = subtitleStyle;
-    subtitles.innerHTML = getMaxWords(speech.phrase);
+    subtitles.innerHTML = getMaxWords(filterProfanity(speech.phrase));
 
     // Clear Text after moments of silence.
     clearTimeout(updateSubtitles.ival);
@@ -131,6 +146,13 @@ function updateSubtitles(speech) {
 function getMaxWords(speech) {
     let words = speech.split(' ').filter( w => w );
     return words.slice(-maxWords).join(' ');
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Profanity Filter - Replace bad words with "puppies"
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+function filterProfanity(text) {
+    return text.replace(profanityRegex, 'puppies');
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
