@@ -36,6 +36,19 @@ const profanityRegex = new RegExp(
     '\\b(' + profanityList.join('|') + ')\\b', 'gi'
 );
 
+// Word Substitution Dictionary - add new "from": "to" pairs here
+const substitutions = {
+    'Steven' : 'Stephen',
+};
+// Case-insensitive lookup so matches resolve regardless of input casing
+const substitutionLookup = Object.fromEntries(
+    Object.entries(substitutions).map(([k, v]) => [k.toLowerCase(), v])
+);
+// Compiled once, reused on every update
+const substitutionRegex = new RegExp(
+    '\\b(' + Object.keys(substitutions).join('|') + ')\\b', 'gi'
+);
+
 // Setup PubNub
 const pubnub = PubNub({
     subscribeKey: subkey,
@@ -127,7 +140,7 @@ function updateSubtitles(speech) {
     if (speech && speech['style']) subtitleStyle = speech['style'];
     updateSubtitleStyle(subtitleStyle);
     speech.style = subtitleStyle;
-    subtitles.innerHTML = getMaxWords(filterProfanity(speech.phrase));
+    subtitles.innerHTML = getMaxWords(filterProfanity(filterNames(speech.phrase)));
 
     // Clear Text after moments of silence.
     clearTimeout(updateSubtitles.ival);
@@ -153,6 +166,15 @@ function getMaxWords(speech) {
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 function filterProfanity(text) {
     return text.replace(profanityRegex, 'puppies');
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Word Filter - Replace words using the substitutions dictionary
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+function filterNames(text) {
+    return text.replace(substitutionRegex, match =>
+        substitutionLookup[match.toLowerCase()]
+    );
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiveSplit Timer</title>
+<style>
+  :root {
+    --bg-top: #0f1923;
+    --bg-bottom: #060a0f;
+    --timer-color: #8cff7a;
+    --timer-shadow: rgba(14, 255, 12, 0.99);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .timer {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    color: var(--timer-color);
+    text-shadow: 0 0 42px var(--timer-shadow);
+    line-height: 1;
+    white-space: nowrap;
+    padding-right: 50px;
+  }
+
+  .timer .main {
+    font-size: clamp(3rem, 18vw, 14rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .timer .fraction {
+    font-size: clamp(1.4rem, 8vw, 6rem);
+    font-weight: 600;
+    margin-left: 0.08em;
+    opacity: 0.95;
+  }
+</style>
+</head>
+<body>
+  <div class="timer" id="timer">
+    <span class="main" id="main">0:00</span><span class="fraction" id="fraction">.00</span>
+  </div>
+
+  <script>
+    const mainEl = document.getElementById('main');
+    const fractionEl = document.getElementById('fraction');
+
+    // High-resolution start reference set on page load.
+    const startTime = performance.now();
+
+    function pad(n, len = 2) {
+      return String(n).padStart(len, '0');
+    }
+
+    function format(elapsedMs) {
+      const totalMs = Math.floor(elapsedMs);
+      const hundredths = Math.floor((totalMs % 1000) / 10);
+      const totalSeconds = Math.floor(totalMs / 1000);
+      const seconds = totalSeconds % 60;
+      const totalMinutes = Math.floor(totalSeconds / 60);
+      const minutes = totalMinutes % 60;
+      const hours = Math.floor(totalMinutes / 60);
+
+      let main;
+      if (hours > 0) {
+        main = `${hours}:${pad(minutes)}:${pad(seconds)}`;
+      } else {
+        main = `${minutes}:${pad(seconds)}`;
+      }
+      return { main, fraction: '.' + pad(hundredths) };
+    }
+
+    function tick() {
+      const elapsed = performance.now() - startTime;
+      const { main, fraction } = format(elapsed);
+      mainEl.textContent = main;
+      fractionEl.textContent = fraction;
+      requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  </script>
+</body>
+</html>
